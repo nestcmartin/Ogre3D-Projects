@@ -1,28 +1,33 @@
-#include "Core.h"
+#include <iostream>
+
+#include "Timer.h"
 #include "Application.h"
+
 #include "RenderSystem/Renderer.h"
 #include "InputSystem/InputManager.h"
 
-Application::Application(const Ogre::String& name)
+Application::Application(const std::string& name) :
+    frame_(0),
+    deltaTime_(0.0f),
+    name_(name)
 {
-	Core::Init();
-    Renderer::AddFrameListener(this);
+    initSubSystems();
 }
 
 Application::~Application()
 {
-	Core::Release();
-}
-
-bool Application::frameStarted(const Ogre::FrameEvent& evt)
-{
-	pollEvents();
-	return true;
+    releaseSubSystems();
 }
 
 void Application::run()
 {
-    Renderer::Start();
+    while (Renderer::IsRendering())
+    {
+        Timer timer = Timer(&deltaTime_);
+
+        pollEvents();
+        Renderer::Present();
+    }
 }
 
 void Application::pollEvents()
@@ -47,4 +52,24 @@ void Application::pollEvents()
             break;
         }
     }
+}
+
+void Application::initSubSystems()
+{
+    std::cout << "Initializing all sub systems...\n";
+    std::cout << "Initializing the render system...\n";
+    Renderer::Init(name_);
+    std::cout << "Initializing the input system...\n";
+    InputManager::Init();
+    std::cout << "All sub systems initialized!\n";
+}
+
+void Application::releaseSubSystems()
+{
+    std::cout << "Releasing all sub systems...\n";
+    std::cout << "Releasing the input system...\n";
+    InputManager::Release();
+    std::cout << "Releasing the input system...\n";
+    Renderer::Release();
+    std::cout << "All sub systems released!\n";
 }

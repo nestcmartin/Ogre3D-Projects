@@ -9,7 +9,7 @@ private:
 	static Ogre::FileSystemLayer* FSLayer;
 
 public:
-	static void Init();
+	static void Init(const Ogre::String& name);
 	static void Release();
 
 	static Ogre::FileSystemLayer* FileSystemLayer() { return FSLayer; }

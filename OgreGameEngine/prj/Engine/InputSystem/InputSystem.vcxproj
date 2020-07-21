@@ -23,7 +23,6 @@
     <ClInclude Include="..\..\..\src\Engine\InputSystem\InputListener.h" />
     <ClInclude Include="..\..\..\src\Engine\InputSystem\InputListenerChain.h" />
     <ClInclude Include="..\..\..\src\Engine\InputSystem\InputManager.h" />
-    <ClInclude Include="..\..\..\src\Engine\InputSystem\SDLInputMapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\Engine\InputSystem\InputListenerChain.cpp" />

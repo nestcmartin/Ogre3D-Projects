@@ -10,9 +10,9 @@
 
 Ogre::FileSystemLayer* ResourcesManager::FSLayer = nullptr;
 
-void ResourcesManager::Init()
+void ResourcesManager::Init(const Ogre::String& name)
 {
-	FSLayer = new Ogre::FileSystemLayer("Ogre3D");
+	FSLayer = new Ogre::FileSystemLayer(name);
     Locate();
     Load();
 }

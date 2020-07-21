@@ -1,23 +1,28 @@
 #ifndef __APPLICATION_H__
 #define __APPLICATION_H__
 
-#include "Ogre.h"
+#include <string>
 
-class Application : Ogre::FrameListener
+class Application
 {
-public:
-	explicit Application(const Ogre::String& name);
-	virtual ~Application();
+protected:
+	uint32_t frame_;
+	float deltaTime_;
+	std::string name_;
 
-	bool frameStarted(const Ogre::FrameEvent& evt) override;
-	bool frameRenderingQueued(const Ogre::FrameEvent& evt) override { return true; }
-	bool frameEnded(const Ogre::FrameEvent& evt) override { return true; }
+public:
+	explicit Application(const std::string& name);
+	virtual ~Application();
 
 	virtual void setup() {}
 	virtual void shutdown() {}
 
 	virtual void run();
 	virtual void pollEvents();
+
+protected:
+	void initSubSystems();
+	void releaseSubSystems();
 };
 
 #endif // !__APPLICATION_H__

@@ -4,9 +4,10 @@
 
 Window* Renderer::window = nullptr;
 Ogre::Root* Renderer::root = nullptr;
+bool Renderer::isRendering = true;
 Ogre::OverlaySystem* Renderer::overlaySystem = nullptr;
 
-void Renderer::Init()
+void Renderer::Init(const Ogre::String& name)
 {
 	root = OGRE_NEW Ogre::Root();
 	overlaySystem = OGRE_NEW Ogre::OverlaySystem();
@@ -17,10 +18,15 @@ void Renderer::Init()
 	if (!SDL_WasInit(SDL_INIT_VIDEO)) SDL_InitSubSystem(SDL_INIT_VIDEO);
 
 	window = new Window();
-	window->initWindow("Ogre3D", 1280, 720);
+	window->initWindow(name, 1280, 720);
 
 	ShaderSystem::Init();
-	ResourcesManager::Init();
+	ResourcesManager::Init(name);
+}
+
+void Renderer::Present()
+{
+	root->renderOneFrame();
 }
 
 void Renderer::Release()
@@ -56,6 +62,7 @@ void Renderer::Start()
 
 void Renderer::Stop()
 {
+	isRendering = false;
 	root->queueEndRendering();
 }
 
@@ -66,9 +73,4 @@ void Renderer::ProcessWindowEvent(const SDL_Event& event)
 	Ogre::RenderWindow* win = window->getRenderWindow();
 	win->windowMovedOrResized();
 	window->windowResized(win);
-}
-
-void Renderer::AddFrameListener(Ogre::FrameListener* lis)
-{
-	root->addFrameListener(lis);
 }

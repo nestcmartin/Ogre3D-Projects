@@ -1,13 +1,7 @@
 #ifndef __INPUT_LISTENER_H__
 #define __INPUT_LISTENER_H__
 
-struct KeyboardEvent;
-struct TouchFingerEvent;
-struct TouchFingerEvent;
-struct MouseMotionEvent;
-struct MouseWheelEvent;
-struct MouseButtonEvent;
-struct TextInputEvent;
+#include "InputEvent.h"
 
 struct InputListener
 {

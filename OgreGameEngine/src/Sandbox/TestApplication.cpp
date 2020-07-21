@@ -2,19 +2,17 @@
 #include "OgreShaderGenerator.h"
 
 #include "InputSystem/InputManager.h"
-#include "InputSystem/InputListenerChain.h"
-#include "InputSystem/InputEvent.h"
 #include "RenderSystem/Renderer.h"
 #include "RenderSystem/Window.h"
-#include "Core/Core.h"
 
-TestApplication::TestApplication() : Application("Test Application")
+TestApplication::TestApplication() : 
+    Application("Ogre3D_Test")
 {
 }
 
 bool TestApplication::keyPressed(const KeyboardEvent& evt)
 {
-    if (evt.keysym.sym == OIS_ESCAPE)
+    if (evt.keysym.sym == InputKey::ESCAPE)
     {
         Renderer::Stop();
     }
