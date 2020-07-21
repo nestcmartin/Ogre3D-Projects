@@ -174,102 +174,18 @@ public:
 	InputListenerChain() {}
 	InputListenerChain(std::vector<InputListener*> chain) : listenerChain_(chain) {}
 
-	InputListenerChain& operator=(InputListenerChain o)
-	{
-		listenerChain_ = o.listenerChain_;
-		return *this;
-	}
+	InputListenerChain& operator=(InputListenerChain o);
 
-	bool keyPressed(const KeyboardEvent& evt)
-	{
-		for (auto listner : listenerChain_)
-		{
-			if (listner->keyPressed(evt))
-				return true;
-		}
-		return false;
-	}
-	bool keyReleased(const KeyboardEvent& evt)
-	{
-		for (auto listner : listenerChain_)
-		{
-			if (listner->keyReleased(evt))
-				return true;
-		}
-		return false;
-	}
-	bool touchMoved(const TouchFingerEvent& evt)
-	{
-		for (auto listner : listenerChain_)
-		{
-			if (listner->touchMoved(evt))
-				return true;
-		}
-		return false;
-	}
-	bool touchPressed(const TouchFingerEvent& evt)
-	{
-		for (auto listner : listenerChain_)
-		{
-			if (listner->touchPressed(evt))
-				return true;
-		}
-		return false;
-	}
-	bool touchReleased(const TouchFingerEvent& evt)
-	{
-		for (auto listner : listenerChain_)
-		{
-			if (listner->touchReleased(evt))
-				return true;
-		}
-		return false;
-	}
-	bool mouseMoved(const MouseMotionEvent& evt)
-	{
-		for (auto listner : listenerChain_)
-		{
-			if (listner->mouseMoved(evt))
-				return true;
-		}
-		return false;
-	}
-	bool mouseWheelRolled(const MouseWheelEvent& evt)
-	{
-		for (auto listner : listenerChain_)
-		{
-			if (listner->mouseWheelRolled(evt))
-				return true;
-		}
-		return false;
-	}
-	bool mousePressed(const MouseButtonEvent& evt)
-	{
-		for (auto listner : listenerChain_)
-		{
-			if (listner->mousePressed(evt))
-				return true;
-		}
-		return false;
-	}
-	bool mouseReleased(const MouseButtonEvent& evt)
-	{
-		for (auto listner : listenerChain_)
-		{
-			if (listner->mouseReleased(evt))
-				return true;
-		}
-		return false;
-	}
-	bool textInput(const TextInputEvent& evt)
-	{
-		for (auto listner : listenerChain_)
-		{
-			if (listner->textInput(evt))
-				return true;
-		}
-		return false;
-	}
+	bool keyPressed(const KeyboardEvent& evt);
+	bool keyReleased(const KeyboardEvent& evt);
+	bool touchMoved(const TouchFingerEvent& evt);
+	bool touchPressed(const TouchFingerEvent& evt);
+	bool touchReleased(const TouchFingerEvent& evt);
+	bool mouseMoved(const MouseMotionEvent& evt);
+	bool mouseWheelRolled(const MouseWheelEvent& evt);
+	bool mousePressed(const MouseButtonEvent& evt);
+	bool mouseReleased(const MouseButtonEvent& evt);
+	bool textInput(const TextInputEvent& evt);
 };
 
 #endif // !__OGRE_INPUT_H__

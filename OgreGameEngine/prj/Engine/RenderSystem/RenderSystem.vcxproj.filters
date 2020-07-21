@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\OgreTestApp\Main.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\OgreTestApp\MyTestApp.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>

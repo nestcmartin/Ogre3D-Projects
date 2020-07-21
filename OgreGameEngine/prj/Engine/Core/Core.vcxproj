@@ -18,36 +18,46 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\Engine\Core\OgreApplicationContext.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\Core\OgreApplicationContextSDL.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\Core\OgreSGTechniqueResolverListener.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\Engine\Core\OgreApplicationContext.h" />
+    <ClInclude Include="..\..\..\src\Engine\Core\OgreApplicationContextSDL.h" />
+    <ClInclude Include="..\..\..\src\Engine\Core\OgreSGTechniqueResolverListener.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{C148D3AE-5F64-443B-A75D-E998BF9BFD27}</ProjectGuid>
     <RootNamespace>OgreTest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>OgreTestApp</ProjectName>
+    <ProjectName>Core</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -99,7 +109,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src\Engine\InputSystem;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -116,7 +126,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src\Engine\InputSystem;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,7 +143,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src\Engine\InputSystem;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -150,7 +160,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src\Engine\InputSystem;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -161,21 +171,6 @@
       <AdditionalDependencies>SDL2.lib;OgreOverlay.lib;OgreRTShaderSystem.lib;OgreMain.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\src\OgreTestApp\Main.cpp" />
-    <ClCompile Include="..\..\src\OgreTestApp\MyTestApp.cpp" />
-    <ClCompile Include="..\..\src\OgreTestApp\OgreApplicationContext.cpp" />
-    <ClCompile Include="..\..\src\OgreTestApp\OgreApplicationContextSDL.cpp" />
-    <ClCompile Include="..\..\src\OgreTestApp\OgreSGTechniqueResolverListener.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\src\OgreTestApp\MyTestApp.h" />
-    <ClInclude Include="..\..\src\OgreTestApp\OgreApplicationContext.h" />
-    <ClInclude Include="..\..\src\OgreTestApp\OgreApplicationContextSDL.h" />
-    <ClInclude Include="..\..\src\OgreTestApp\OgreInput.h" />
-    <ClInclude Include="..\..\src\OgreTestApp\OgreSGTechniqueResolverListener.h" />
-    <ClInclude Include="..\..\src\OgreTestApp\SDLInputMapper.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
