@@ -3,13 +3,8 @@
 
 #include "Ogre.h"
 
-class Window;
-
 class Application : Ogre::FrameListener
 {
-protected:
-	Window* window_;
-
 public:
 	explicit Application(const Ogre::String& name);
 	virtual ~Application();
@@ -21,8 +16,8 @@ public:
 	virtual void setup() {}
 	virtual void shutdown() {}
 
-	void run();
-	void pollEvents();
+	virtual void run();
+	virtual void pollEvents();
 };
 
 #endif // !__APPLICATION_H__

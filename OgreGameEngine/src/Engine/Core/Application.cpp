@@ -1,37 +1,17 @@
 #include "Core.h"
-#include "Window.h"
-#include "Resources.h"
 #include "Application.h"
+#include "RenderSystem/Renderer.h"
 #include "InputSystem/InputManager.h"
 
-Application::Application(const Ogre::String& name) :
-	window_(new Window())
+Application::Application(const Ogre::String& name)
 {
-	Resources::Init(name);
 	Core::Init();
-
-	window_->initWindow(name, 1280, 720);
-
-    InputManager::Init();
-
-	Resources::Locate();
-	Resources::InitShaderSystem();
-	Resources::Load();
-
-    Core::Root()->addFrameListener(this);
+    Renderer::AddFrameListener(this);
 }
 
 Application::~Application()
 {
-	Resources::ReleaseShaderSystem();
-
-    window_->destroyWindow();
-    window_ = nullptr;
-
-    InputManager::Release();
-
 	Core::Release();
-	Resources::Release();
 }
 
 bool Application::frameStarted(const Ogre::FrameEvent& evt)
@@ -42,12 +22,12 @@ bool Application::frameStarted(const Ogre::FrameEvent& evt)
 
 void Application::run()
 {
-    Core::Root()->startRendering();
+    Renderer::Start();
 }
 
 void Application::pollEvents()
 {
-    if (!window_) return;
+    if (!Renderer::GetWindow()) return;
 
     SDL_Event event;
     while (SDL_PollEvent(&event))
@@ -55,17 +35,11 @@ void Application::pollEvents()
         switch (event.type)
         {
         case SDL_QUIT:
-            Core::Root()->queueEndRendering();
+            Renderer::Stop();
             break;
 
         case SDL_WINDOWEVENT:
-        {
-            if (event.window.event != SDL_WINDOWEVENT_RESIZED) continue;
-            if (event.window.windowID != SDL_GetWindowID(window_->getNativeWindow())) continue;
-            Ogre::RenderWindow* win = window_->getRenderWindow();
-            win->windowMovedOrResized();
-            window_->windowResized(win);
-        }
+            Renderer::ProcessWindowEvent(event);
             break;
 
         default:

@@ -20,11 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\Sandbox\Main.cpp" />
-    <ClCompile Include="..\..\src\Sandbox\TestApp.cpp" />
     <ClCompile Include="..\..\src\Sandbox\TestApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\Sandbox\TestApp.h" />
     <ClInclude Include="..\..\src\Sandbox\TestApplication.h" />
   </ItemGroup>
   <ItemGroup>
@@ -33,6 +31,9 @@
     </ProjectReference>
     <ProjectReference Include="..\Engine\InputSystem\InputSystem.vcxproj">
       <Project>{0d38869b-77af-4630-8c46-323c2936f67e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Engine\RenderSystem\RenderSystem.vcxproj">
+      <Project>{e0a7c2dc-ac5c-44e1-b33b-34c086c62568}</Project>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -122,7 +123,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\engine\lib\$(Platform)\$(Configuration)\;$(SolutionDir)lib\SDL2-2.0.10\lib\$(Platform)\;$(SolutionDir)lib\ogre-1.12.7\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>InputSystem_d.lib;Core_d.lib;SDL2.lib;OgreOverlay_d.lib;OgreRTShaderSystem_d.lib;OgreMain_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>RenderSystem_d.lib;InputSystem_d.lib;Core_d.lib;SDL2.lib;OgreOverlay_d.lib;OgreRTShaderSystem_d.lib;OgreMain_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -141,7 +142,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\engine\lib\$(Platform)\$(Configuration)\;$(SolutionDir)lib\SDL2-2.0.10\lib\$(Platform)\;$(SolutionDir)lib\ogre-1.12.7\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>InputSystem.lib;Core.lib;SDL2.lib;OgreOverlay.lib;OgreRTShaderSystem.lib;OgreMain.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>RenderSystem.lib;InputSystem.lib;Core.lib;SDL2.lib;OgreOverlay.lib;OgreRTShaderSystem.lib;OgreMain.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -156,7 +157,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\engine\lib\$(Platform)\$(Configuration)\;$(SolutionDir)lib\SDL2-2.0.10\lib\$(Platform)\;$(SolutionDir)lib\ogre-1.12.7\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>InputSystem_d.lib;Core_d.lib;SDL2.lib;OgreOverlay_d.lib;OgreRTShaderSystem_d.lib;OgreMain_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>RenderSystem_d.lib;InputSystem_d.lib;Core_d.lib;SDL2.lib;OgreOverlay_d.lib;OgreRTShaderSystem_d.lib;OgreMain_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -175,7 +176,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\engine\lib\$(Platform)\$(Configuration)\;$(SolutionDir)lib\SDL2-2.0.10\lib\$(Platform)\;$(SolutionDir)lib\ogre-1.12.7\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>InputSystem.lib;Core.lib;SDL2.lib;OgreOverlay.lib;OgreRTShaderSystem.lib;OgreMain.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>RenderSystem.lib;InputSystem.lib;Core.lib;SDL2.lib;OgreOverlay.lib;OgreRTShaderSystem.lib;OgreMain.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,11 +1,8 @@
 #ifndef __WINDOW_H__
 #define __WINDOW_H__
 
-#include "OgreRenderWindow.h"
-
-struct SDL_Window;
-
-typedef unsigned int uint32_t;
+#include "SDL.h"
+#include "Ogre.h"
 
 class Window
 {

@@ -1,12 +1,12 @@
-#ifndef __OGRE_SG_TECHNIQUE_RESOLVER_LISTENER_H__
-#define __OGRE_SG_TECHNIQUE_RESOLVER_LISTENER_H__
+#ifndef __TECHNIQUE_RESOLVER_LISTENER_H__
+#define __TECHNIQUE_RESOLVER_LISTENER_H__
 
 #include "OgreMaterialManager.h"
 
-class OgreSGTechniqueResolverListener : public Ogre::MaterialManager::Listener
+class TechniqueResolverListener : public Ogre::MaterialManager::Listener
 {
 public:
-	explicit OgreSGTechniqueResolverListener(Ogre::RTShader::ShaderGenerator* shaderGenerator);
+	explicit TechniqueResolverListener(Ogre::RTShader::ShaderGenerator* shaderGenerator);
     Ogre::Technique* handleSchemeNotFound(unsigned short schemeIndex, const Ogre::String& schemeName,
         Ogre::Material* originalMaterial, unsigned short lodIndex, const Ogre::Renderable* rend);
 
@@ -17,4 +17,4 @@ protected:
     Ogre::RTShader::ShaderGenerator* shaderGenerator_;
 };
 
-#endif // !__OGRE_SG_TECHNIQUE_RESOLVER_LISTENER_H__
+#endif // !__TECHNIQUE_RESOLVER_LISTENER_H__

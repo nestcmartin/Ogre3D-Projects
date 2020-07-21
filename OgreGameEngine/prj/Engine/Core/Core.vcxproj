@@ -20,19 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\Engine\Core\Application.cpp" />
-    <ClCompile Include="..\..\..\src\Engine\Core\ApplicationContext.cpp" />
     <ClCompile Include="..\..\..\src\Engine\Core\Core.cpp" />
-    <ClCompile Include="..\..\..\src\Engine\Core\OgreSGTechniqueResolverListener.cpp" />
-    <ClCompile Include="..\..\..\src\Engine\Core\Resources.cpp" />
-    <ClCompile Include="..\..\..\src\Engine\Core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\Engine\Core\Application.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\ApplicationContext.h" />
     <ClInclude Include="..\..\..\src\Engine\Core\Core.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\OgreSGTechniqueResolverListener.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\Resources.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\Window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

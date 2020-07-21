@@ -10,7 +10,7 @@ union InputEvent;
 class InputManager
 {
 private:
-	static std::list<InputListener*> InputListeners;
+	static std::list<InputListener*> inputListeners;
 
 public:
 	static void Init();

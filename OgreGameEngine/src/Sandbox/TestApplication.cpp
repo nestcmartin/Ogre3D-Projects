@@ -4,8 +4,9 @@
 #include "InputSystem/InputManager.h"
 #include "InputSystem/InputListenerChain.h"
 #include "InputSystem/InputEvent.h"
+#include "RenderSystem/Renderer.h"
+#include "RenderSystem/Window.h"
 #include "Core/Core.h"
-#include "Core/Window.h"
 
 TestApplication::TestApplication() : Application("Test Application")
 {
@@ -15,7 +16,7 @@ bool TestApplication::keyPressed(const KeyboardEvent& evt)
 {
     if (evt.keysym.sym == OIS_ESCAPE)
     {
-        Core::Root()->queueEndRendering();
+        Renderer::Stop();
     }
     return true;
 }
@@ -29,7 +30,7 @@ void TestApplication::setup()
     InputManager::AddInputListener(this);
 
     // get a pointer to the already created root
-    Ogre::Root* root = Core::Root();
+    Ogre::Root* root = Renderer::GetRoot();
     Ogre::SceneManager* scnMgr = root->createSceneManager();
 
     // register our scene with the RTSS
@@ -54,7 +55,7 @@ void TestApplication::setup()
     camNode->attachObject(cam);
 
     // and tell it to render into the main window
-    window_->getRenderWindow()->addViewport(cam);
+    Renderer::GetWindow()->getRenderWindow()->addViewport(cam);
 
     // finally something to render
     Ogre::Entity* ent = scnMgr->createEntity("Sinbad.mesh");

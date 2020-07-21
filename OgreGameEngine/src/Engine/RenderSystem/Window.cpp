@@ -1,10 +1,6 @@
-#include "Ogre.h"
-
-#include "SDL.h"
-#include "SDL_syswm.h"
-
-#include "Core.h"
 #include "Window.h"
+#include "Renderer.h"
+#include "SDL_syswm.h"
 
 Window::Window(Ogre::RenderWindow* render, SDL_Window* native) :
 	render_(render),
@@ -15,7 +11,7 @@ Window::Window(Ogre::RenderWindow* render, SDL_Window* native) :
 void Window::initWindow(const Ogre::String& name, uint32_t w, uint32_t h)
 {
     Ogre::NameValuePairList miscParams;
-    auto d = Core::Root()->getRenderSystem()->getRenderWindowDescription();
+    auto d = Renderer::GetRoot()->getRenderSystem()->getRenderWindowDescription();
     miscParams.insert(d.miscParams.begin(), d.miscParams.end());
     d.miscParams = miscParams;
     if (w > 0) d.width = w;
@@ -31,7 +27,7 @@ void Window::initWindow(const Ogre::String& name, uint32_t w, uint32_t h)
     d.miscParams["externalWindowHandle"] = Ogre::StringConverter::toString(size_t(wmInfo.info.win.window));
     d.miscParams["currentGLContext"] = "true";
 
-    render_ = Core::Root()->createRenderWindow(d);
+    render_ = Renderer::GetRoot()->createRenderWindow(d);
 }
 
 void Window::setWindowGrab(bool grab)
@@ -42,6 +38,6 @@ void Window::setWindowGrab(bool grab)
 
 void Window::destroyWindow()
 {
-    Core::Root()->destroyRenderTarget(render_);
+    Renderer::GetRoot()->destroyRenderTarget(render_);
     if (native_) SDL_DestroyWindow(native_);
 }

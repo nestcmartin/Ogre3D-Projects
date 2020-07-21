@@ -5,22 +5,19 @@
 #include "OgrePlugin.h"
 #include "OgreGpuProgramManager.h"
 
-#include "OgreRTShaderSystem.h"
-#include "OgreSGTechniqueResolverListener.h"
+#include "Renderer.h"
+#include "ResourcesManager.h"
 
-#include "Core.h"
-#include "Resources.h"
+Ogre::FileSystemLayer* ResourcesManager::FSLayer = nullptr;
 
-Ogre::FileSystemLayer* Resources::FSLayer = nullptr;
-Ogre::RTShader::ShaderGenerator* Resources::ShaderGenerator = nullptr;
-OgreSGTechniqueResolverListener* Resources::MaterialManagerListener = nullptr;
-
-void Resources::Init(const Ogre::String& name)
+void ResourcesManager::Init()
 {
-	FSLayer = new Ogre::FileSystemLayer(name);
+	FSLayer = new Ogre::FileSystemLayer("Ogre3D");
+    Locate();
+    Load();
 }
 
-void Resources::Locate()
+void ResourcesManager::Locate()
 {
     Ogre::ConfigFile cf;
     Ogre::String resourcesPath = FSLayer->getConfigFilePath("resources.cfg");
@@ -56,7 +53,7 @@ void Resources::Locate()
     type = genLocs.front().archive->getType();
 
     bool hasCgPlugin = false;
-    const Ogre::Root::PluginInstanceList& plugins = Core::Root()->getInstalledPlugins();
+    const Ogre::Root::PluginInstanceList& plugins = Renderer::GetRoot()->getInstalledPlugins();
     for (size_t i = 0; i < plugins.size(); i++)
     {
         if (plugins[i]->getName() == "Cg Program Manager")
@@ -104,45 +101,12 @@ void Resources::Locate()
         rgm.addResourceLocation(arch + "/materials/programs/HLSL_Cg", type, sec);
 }
 
-void Resources::Load()
+void ResourcesManager::Load()
 {
     Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
 }
 
-void Resources::InitShaderSystem()
-{
-    if (Ogre::RTShader::ShaderGenerator::initialize())
-    {
-        ShaderGenerator = Ogre::RTShader::ShaderGenerator::getSingletonPtr();
-        if (!MaterialManagerListener)
-        {
-            MaterialManagerListener = new OgreSGTechniqueResolverListener(ShaderGenerator);
-        }
-    }
-}
-
-void Resources::ReleaseShaderSystem()
-{
-    // Restore default scheme.
-    Ogre::MaterialManager::getSingleton().setActiveScheme(Ogre::MaterialManager::DEFAULT_SCHEME_NAME);
-
-    // Unregister the material manager listener.
-    if (MaterialManagerListener)
-    {
-        Ogre::MaterialManager::getSingleton().removeListener(MaterialManagerListener);
-        delete MaterialManagerListener;
-        MaterialManagerListener = nullptr;
-    }
-
-    // Destroy RTShader system.
-    if (ShaderGenerator)
-    {
-        Ogre::RTShader::ShaderGenerator::destroy();
-        ShaderGenerator = nullptr;
-    }
-}
-
-void Resources::Release()
+void ResourcesManager::Release()
 {
 	if (FSLayer)
 	{

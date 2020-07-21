@@ -19,28 +19,26 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\Engine\Core\Application.cpp" />
-    <ClCompile Include="..\..\..\src\Engine\Core\ApplicationContext.cpp" />
-    <ClCompile Include="..\..\..\src\Engine\Core\Core.cpp" />
-    <ClCompile Include="..\..\..\src\Engine\Core\OgreSGTechniqueResolverListener.cpp" />
-    <ClCompile Include="..\..\..\src\Engine\Core\Resources.cpp" />
-    <ClCompile Include="..\..\..\src\Engine\Core\Window.cpp" />
+    <ClInclude Include="..\..\..\src\Engine\RenderSystem\TechniqueResolverListener.h" />
+    <ClInclude Include="..\..\..\src\Engine\RenderSystem\Renderer.h" />
+    <ClInclude Include="..\..\..\src\Engine\RenderSystem\ResourcesManager.h" />
+    <ClInclude Include="..\..\..\src\Engine\RenderSystem\ShaderSystem.h" />
+    <ClInclude Include="..\..\..\src\Engine\RenderSystem\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\src\Engine\Core\Application.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\ApplicationContext.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\Core.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\OgreSGTechniqueResolverListener.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\Resources.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\Window.h" />
+    <ClCompile Include="..\..\..\src\Engine\RenderSystem\TechniqueResolverListener.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\RenderSystem\Renderer.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\RenderSystem\ResourcesManager.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\RenderSystem\ShaderSystem.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\RenderSystem\Window.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{C148D3AE-5F64-443B-A75D-E998BF9BFD27}</ProjectGuid>
+    <ProjectGuid>{E0A7C2DC-AC5C-44E1-B33B-34C086C62568}</ProjectGuid>
     <RootNamespace>OgreTest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Core</ProjectName>
+    <ProjectName>RenderSystem</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

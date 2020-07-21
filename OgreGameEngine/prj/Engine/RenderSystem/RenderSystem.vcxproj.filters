@@ -1,19 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\Engine\Core\OgreSGTechniqueResolverListener.cpp" />
-    <ClCompile Include="..\..\..\src\Engine\Core\ApplicationContext.cpp" />
-    <ClCompile Include="..\..\..\src\Engine\Core\Window.cpp" />
-    <ClCompile Include="..\..\..\src\Engine\Core\Core.cpp" />
-    <ClCompile Include="..\..\..\src\Engine\Core\Resources.cpp" />
-    <ClCompile Include="..\..\..\src\Engine\Core\Application.cpp" />
+    <ClInclude Include="..\..\..\src\Engine\RenderSystem\Renderer.h" />
+    <ClInclude Include="..\..\..\src\Engine\RenderSystem\Window.h" />
+    <ClInclude Include="..\..\..\src\Engine\RenderSystem\ShaderSystem.h">
+      <Filter>ShaderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\RenderSystem\TechniqueResolverListener.h">
+      <Filter>ShaderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\RenderSystem\ResourcesManager.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\src\Engine\Core\OgreSGTechniqueResolverListener.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\ApplicationContext.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\Window.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\Core.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\Resources.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\Application.h" />
+    <ClCompile Include="..\..\..\src\Engine\RenderSystem\Renderer.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\RenderSystem\Window.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\RenderSystem\ShaderSystem.cpp">
+      <Filter>ShaderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Engine\RenderSystem\TechniqueResolverListener.cpp">
+      <Filter>ShaderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Engine\RenderSystem\ResourcesManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="ShaderSystem">
+      <UniqueIdentifier>{53c31566-abd5-402c-98ee-5c78b4769ee9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

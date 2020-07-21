@@ -2,28 +2,28 @@
 #include "InputEvent.h"
 #include "InputListener.h"
 
-std::list<InputListener*> InputManager::InputListeners;
+std::list<InputListener*> InputManager::inputListeners;
 
 void InputManager::Init()
 {
-	InputListeners.clear();
+	inputListeners.clear();
 }
 
 void InputManager::AddInputListener(InputListener* lis)
 {
-	InputListeners.push_back(lis);
+	inputListeners.push_back(lis);
 }
 
 void InputManager::RemoveInputListener(InputListener* lis)
 {
-	InputListeners.remove(lis);
+	inputListeners.remove(lis);
 }
 
 void InputManager::ProcessInputEvent(const SDL_Event& event)
 {
 	InputEvent evt = ConvertImputEvent(event);
 
-	for (auto it = InputListeners.begin(); it != InputListeners.end(); ++it)
+	for (auto it = inputListeners.begin(); it != inputListeners.end(); ++it)
 	{
 		InputListener* l = (*it);
 		switch (evt.type)
@@ -126,5 +126,5 @@ InputEvent InputManager::ConvertImputEvent(const SDL_Event& in)
 
 void InputManager::Release()
 {
-	InputListeners.clear();
+	inputListeners.clear();
 }

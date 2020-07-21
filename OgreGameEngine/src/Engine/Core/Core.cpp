@@ -1,27 +1,25 @@
-#include "OgreRoot.h"
-
-#include "SDL.h"
+#include <iostream>
 
 #include "Core.h"
-
-Ogre::Root* Core::root = nullptr;
+#include "RenderSystem/Renderer.h"
+#include "InputSystem/InputManager.h"
 
 void Core::Init()
 {
-	root = OGRE_NEW Ogre::Root();
-	if (!root->restoreConfig()) root->showConfigDialog(nullptr);
-	root->initialise(false);
-
-	if (!SDL_WasInit(SDL_INIT_VIDEO)) SDL_InitSubSystem(SDL_INIT_VIDEO);
+	std::cout << "Initializing all sub systems...\n";
+	std::cout << "Initializing the render system...\n";
+	Renderer::Init();
+	std::cout << "Initializing the input system...\n";
+	InputManager::Init();
+	std::cout << "All sub systems initialized!\n";
 }
 
 void Core::Release()
 {
-	if (SDL_WasInit(SDL_INIT_VIDEO)) SDL_QuitSubSystem(SDL_INIT_VIDEO);
-
-	if (root)
-	{
-		OGRE_DELETE root;
-		root = nullptr;
-	}
+	std::cout << "Releasing all sub systems...\n";
+	std::cout << "Releasing the input system...\n";
+	InputManager::Release();
+	std::cout << "Releasing the input system...\n";
+	Renderer::Release();
+	std::cout << "All sub systems released!\n";
 }
