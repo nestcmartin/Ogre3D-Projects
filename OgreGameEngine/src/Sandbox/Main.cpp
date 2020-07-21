@@ -1,10 +1,11 @@
-#include "MyTestApp.h"
+#include "TestApplication.h"
 
 int main(int argc, char *argv[])
 {
-    MyTestApp app;
-    app.initApp();
-    app.getRoot()->startRendering();
-    app.closeApp();
+    TestApplication app;
+    app.setup();
+    app.run();
+    app.shutdown();
+
     return 0;
 }

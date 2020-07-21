@@ -1,11 +1,69 @@
-#ifndef __SDL_INPUT_MAPPER_H__
-#define __SDL_INPUT_MAPPER_H__
-
-#include "SDL.h"
-#include "InputListenerChain.h"
+#include "InputManager.h"
 #include "InputEvent.h"
+#include "InputListener.h"
 
-InputEvent convert(const SDL_Event& in)
+std::list<InputListener*> InputManager::InputListeners;
+
+void InputManager::Init()
+{
+	InputListeners.clear();
+}
+
+void InputManager::AddInputListener(InputListener* lis)
+{
+	InputListeners.push_back(lis);
+}
+
+void InputManager::RemoveInputListener(InputListener* lis)
+{
+	InputListeners.remove(lis);
+}
+
+void InputManager::ProcessInputEvent(const SDL_Event& event)
+{
+	InputEvent evt = ConvertImputEvent(event);
+
+	for (auto it = InputListeners.begin(); it != InputListeners.end(); ++it)
+	{
+		InputListener* l = (*it);
+		switch (evt.type)
+		{
+		case KEYDOWN:
+			l->keyPressed(evt.key);
+			break;
+		case KEYUP:
+			l->keyReleased(evt.key);
+			break;
+		case MOUSEBUTTONDOWN:
+			l->mousePressed(evt.button);
+			break;
+		case MOUSEBUTTONUP:
+			l->mouseReleased(evt.button);
+			break;
+		case MOUSEWHEEL:
+			l->mouseWheelRolled(evt.wheel);
+			break;
+		case MOUSEMOTION:
+			l->mouseMoved(evt.motion);
+			break;
+		case FINGERDOWN:
+			l->touchMoved(evt.tfinger);
+			l->touchPressed(evt.tfinger);
+			break;
+		case FINGERUP:
+			l->touchReleased(evt.tfinger);
+			break;
+		case FINGERMOTION:
+			l->touchMoved(evt.tfinger);
+			break;
+		case TEXTINPUT:
+			l->textInput(evt.text);
+			break;
+		}
+	}
+}
+
+InputEvent InputManager::ConvertImputEvent(const SDL_Event& in)
 {
 	InputEvent out;
 	out.type = 0;
@@ -66,4 +124,7 @@ InputEvent convert(const SDL_Event& in)
 	return out;
 }
 
-#endif // !__SDL_INPUT_MAPPER_H__
+void InputManager::Release()
+{
+	InputListeners.clear();
+}

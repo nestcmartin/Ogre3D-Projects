@@ -1,31 +1,35 @@
-#include "MyTestApp.h"
+#include "TestApplication.h"
 #include "OgreShaderGenerator.h"
-#include <iostream>
 
-MyTestApp::MyTestApp() : OgreApplicationContextSDL()
+#include "InputSystem/InputManager.h"
+#include "InputSystem/InputListenerChain.h"
+#include "InputSystem/InputEvent.h"
+#include "Core/Core.h"
+#include "Core/Window.h"
+
+TestApplication::TestApplication() : Application("Test Application")
 {
 }
 
-bool MyTestApp::keyPressed(const KeyboardEvent& evt)
+bool TestApplication::keyPressed(const KeyboardEvent& evt)
 {
-    std::cout << "ESCAPEEEEEEEEEE\n";
     if (evt.keysym.sym == OIS_ESCAPE)
     {
-        getRoot()->queueEndRendering();
+        Core::Root()->queueEndRendering();
     }
     return true;
 }
 
-void MyTestApp::setup(void)
+void TestApplication::setup()
 {
     // do not forget to call the base first
-    OgreApplicationContext::setup();
+    Application::setup();
 
     // register for input events
-    addInputListener(this);
+    InputManager::AddInputListener(this);
 
     // get a pointer to the already created root
-    Ogre::Root* root = getRoot();
+    Ogre::Root* root = Core::Root();
     Ogre::SceneManager* scnMgr = root->createSceneManager();
 
     // register our scene with the RTSS
@@ -50,10 +54,11 @@ void MyTestApp::setup(void)
     camNode->attachObject(cam);
 
     // and tell it to render into the main window
-    getRenderWindow()->addViewport(cam);
+    window_->getRenderWindow()->addViewport(cam);
 
     // finally something to render
     Ogre::Entity* ent = scnMgr->createEntity("Sinbad.mesh");
     Ogre::SceneNode* node = scnMgr->getRootSceneNode()->createChildSceneNode();
     node->attachObject(ent);
 }
+
