@@ -10,6 +10,8 @@ public:
 	TestApplication();
 
 	void setup() override;
+	void shutdown() override;
+
 	bool keyPressed(const KeyboardEvent& evt) override;
 };
 

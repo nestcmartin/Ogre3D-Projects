@@ -69,7 +69,7 @@ void Application::releaseSubSystems()
     std::cout << "Releasing all sub systems...\n";
     std::cout << "Releasing the input system...\n";
     InputManager::Release();
-    std::cout << "Releasing the input system...\n";
+    std::cout << "Releasing the render system...\n";
     Renderer::Release();
     std::cout << "All sub systems released!\n";
 }

@@ -19,13 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Sandbox\Main.cpp" />
-    <ClCompile Include="..\..\src\Sandbox\TestApplication.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\src\Sandbox\TestApplication.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Engine\Core\Core.vcxproj">
       <Project>{c148d3ae-5f64-443b-a75d-e998bf9bfd27}</Project>
     </ProjectReference>
@@ -35,6 +28,15 @@
     <ProjectReference Include="..\Engine\RenderSystem\RenderSystem.vcxproj">
       <Project>{e0a7c2dc-ac5c-44e1-b33b-34c086c62568}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\Sandbox\Main.cpp" />
+    <ClCompile Include="..\..\src\Sandbox\Physics.cpp" />
+    <ClCompile Include="..\..\src\Sandbox\TestApplication.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\Sandbox\Physics.h" />
+    <ClInclude Include="..\..\src\Sandbox\TestApplication.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -117,13 +119,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\PhysX-4.1\include\PxShared;$(SolutionDir)lib\PhysX-4.1\include\PhysX;$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\engine\lib\$(Platform)\$(Configuration)\;$(SolutionDir)lib\SDL2-2.0.10\lib\$(Platform)\;$(SolutionDir)lib\ogre-1.12.7\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>RenderSystem_d.lib;InputSystem_d.lib;Core_d.lib;SDL2.lib;OgreOverlay_d.lib;OgreRTShaderSystem_d.lib;OgreMain_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\PhysX-4.1\lib\$(Platform)\$(Configuration)\;$(SolutionDir)lib\engine\lib\$(Platform)\$(Configuration)\;$(SolutionDir)lib\SDL2-2.0.10\lib\$(Platform)\;$(SolutionDir)lib\ogre-1.12.7\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>RenderSystem_d.lib;InputSystem_d.lib;Core_d.lib;PhysX_32.lib;PhysXFoundation_32.lib;PhysXCommon_32.lib;PhysXExtensions_static_32.lib;SDL2.lib;OgreOverlay_d.lib;OgreRTShaderSystem_d.lib;OgreMain_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -134,15 +136,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\PhysX-4.1\include\PxShared;$(SolutionDir)lib\PhysX-4.1\include\PhysX;$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\engine\lib\$(Platform)\$(Configuration)\;$(SolutionDir)lib\SDL2-2.0.10\lib\$(Platform)\;$(SolutionDir)lib\ogre-1.12.7\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>RenderSystem.lib;InputSystem.lib;Core.lib;SDL2.lib;OgreOverlay.lib;OgreRTShaderSystem.lib;OgreMain.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\PhysX-4.1\lib\$(Platform)\$(Configuration)\;$(SolutionDir)lib\engine\lib\$(Platform)\$(Configuration)\;$(SolutionDir)lib\SDL2-2.0.10\lib\$(Platform)\;$(SolutionDir)lib\ogre-1.12.7\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>RenderSystem.lib;InputSystem.lib;Core.lib;PhysX_32.lib;PhysXFoundation_32.lib;PhysXCommon_32.lib;PhysXExtensions_static_32.lib;SDL2.lib;OgreOverlay.lib;OgreRTShaderSystem.lib;OgreMain.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -151,13 +153,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\PhysX-4.1\include\PxShared;$(SolutionDir)lib\PhysX-4.1\include\PhysX;$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\engine\lib\$(Platform)\$(Configuration)\;$(SolutionDir)lib\SDL2-2.0.10\lib\$(Platform)\;$(SolutionDir)lib\ogre-1.12.7\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>RenderSystem_d.lib;InputSystem_d.lib;Core_d.lib;SDL2.lib;OgreOverlay_d.lib;OgreRTShaderSystem_d.lib;OgreMain_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\PhysX-4.1\lib\$(Platform)\$(Configuration)\;$(SolutionDir)lib\engine\lib\$(Platform)\$(Configuration)\;$(SolutionDir)lib\SDL2-2.0.10\lib\$(Platform)\;$(SolutionDir)lib\ogre-1.12.7\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>RenderSystem_d.lib;InputSystem_d.lib;Core_d.lib;PhysX_64.lib;PhysXFoundation_64.lib;PhysXCommon_64.lib;PhysXExtensions_static_64.lib;SDL2.lib;OgreOverlay_d.lib;OgreRTShaderSystem_d.lib;OgreMain_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -168,15 +170,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\PhysX-4.1\include\PxShared;$(SolutionDir)lib\PhysX-4.1\include\PhysX;$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\engine\lib\$(Platform)\$(Configuration)\;$(SolutionDir)lib\SDL2-2.0.10\lib\$(Platform)\;$(SolutionDir)lib\ogre-1.12.7\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>RenderSystem.lib;InputSystem.lib;Core.lib;SDL2.lib;OgreOverlay.lib;OgreRTShaderSystem.lib;OgreMain.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\PhysX-4.1\lib\$(Platform)\$(Configuration)\;$(SolutionDir)lib\engine\lib\$(Platform)\$(Configuration)\;$(SolutionDir)lib\SDL2-2.0.10\lib\$(Platform)\;$(SolutionDir)lib\ogre-1.12.7\lib\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>RenderSystem.lib;InputSystem.lib;Core.lib;PhysX_64.lib;PhysXFoundation_64.lib;PhysXCommon_64.lib;PhysXExtensions_static_64.lib;SDL2.lib;OgreOverlay.lib;OgreRTShaderSystem.lib;OgreMain.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
