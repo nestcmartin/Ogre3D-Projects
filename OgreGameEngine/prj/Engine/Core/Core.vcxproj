@@ -106,7 +106,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\RTShaderSystem;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\Overlay;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,7 +123,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\RTShaderSystem;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\Overlay;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,7 +140,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\RTShaderSystem;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\Overlay;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -157,7 +157,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\RTShaderSystem;$(SolutionDir)lib\ogre-1.12.7\include\OGRE\Overlay;$(SolutionDir)lib\ogre-1.12.7\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\RTShaderSystem;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\Overlay;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
