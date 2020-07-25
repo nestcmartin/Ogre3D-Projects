@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ShaderSystem">
+      <UniqueIdentifier>{53c31566-abd5-402c-98ee-5c78b4769ee9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\ResourcesManager.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Window.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\ShaderSystem.cpp">
+      <Filter>ShaderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\TechniqueResolverListener.cpp">
+      <Filter>ShaderSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Graphics.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\ResourcesManager.h" />
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Window.h" />
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\TechniqueResolverListener.h">
+      <Filter>ShaderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\ShaderSystem.h">
+      <Filter>ShaderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Graphics.h" />
+  </ItemGroup>
+</Project>

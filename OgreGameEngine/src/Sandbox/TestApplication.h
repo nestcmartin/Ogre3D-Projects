@@ -2,15 +2,11 @@
 #define __TEST_APPLICATION_H__
 
 #include "Core/Application.h"
-#include "InputSystem/InputListener.h"
 
-class TestApplication : public Application, public InputListener
+class TestApplication : public Application
 {
 public:
 	TestApplication();
-
-	void setup() override;
-	void shutdown() override;
 
 	bool keyPressed(const KeyboardEvent& evt) override;
 };

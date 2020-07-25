@@ -2,9 +2,38 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\..\..\src\Engine\Core\Application.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\Core\InputManager.cpp">
+      <Filter>InputSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Engine\Core\Core.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\Core\Clock.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\Engine\Core\Application.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\Timer.h" />
+    <ClInclude Include="..\..\..\src\Engine\Core\InputEvent.h">
+      <Filter>InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\Core\InputListener.h">
+      <Filter>InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\Core\InputManager.h">
+      <Filter>InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\Core\Core.h" />
+    <ClInclude Include="..\..\..\src\Engine\Core\Singleton.h">
+      <Filter>LowLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\Core\STLHeaders.h">
+      <Filter>LowLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\Core\Clock.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="InputSystem">
+      <UniqueIdentifier>{d903ec71-8be4-4195-ac20-a3c3cbe40285}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LowLevel">
+      <UniqueIdentifier>{619a5180-0bf5-4df9-bac0-aba0c5d67668}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

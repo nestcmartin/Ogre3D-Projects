@@ -1,75 +1,58 @@
-#include <iostream>
-
-#include "Timer.h"
+#include "Core.h"
+#include "Clock.h"
 #include "Application.h"
+#include "InputManager.h"
 
-#include "RenderSystem/Renderer.h"
-#include "InputSystem/InputManager.h"
-
-Application::Application(const std::string& name) :
-    frame_(0),
-    deltaTime_(0.0f),
+Application::Application(const char* name) :
     name_(name)
 {
-    initSubSystems();
+    Core::StartUp();
+    Graphics::GetWindow()->setWindowName(name_);
+    InputManager::Instance()->addInputListener(this);
 }
 
 Application::~Application()
 {
-    releaseSubSystems();
+    Core::ShutDown();
 }
 
 void Application::run()
 {
-    while (Renderer::IsRendering())
-    {
-        Timer timer = Timer(&deltaTime_);
+    Clock realTime;
+    float rdt = realTime.getDeltaTime();
 
+    while (Graphics::IsRendering())
+    {
+        realTime.startTimer();
+        
         pollEvents();
-        Renderer::Present();
+        Graphics::Update();
+
+        realTime.endTimer();
+
+        rdt = realTime.getDeltaTime();
+        std::cout << rdt / 1000.0f << "\n";
     }
 }
 
 void Application::pollEvents()
 {
-    if (!Renderer::GetWindow()) return;
-
     SDL_Event event;
     while (SDL_PollEvent(&event))
     {
         switch (event.type)
         {
         case SDL_QUIT:
-            Renderer::Stop();
+            Graphics::StopRendering();
             break;
 
         case SDL_WINDOWEVENT:
-            Renderer::ProcessWindowEvent(event);
+            if (event.window.event == SDL_WINDOWEVENT_RESIZED) Graphics::ResizeWindow();
             break;
 
         default:
-            InputManager::ProcessInputEvent(event);
+            InputManager::Instance()->processInputEvent(event);
             break;
         }
     }
-}
-
-void Application::initSubSystems()
-{
-    std::cout << "Initializing all sub systems...\n";
-    std::cout << "Initializing the render system...\n";
-    Renderer::Init(name_);
-    std::cout << "Initializing the input system...\n";
-    InputManager::Init();
-    std::cout << "All sub systems initialized!\n";
-}
-
-void Application::releaseSubSystems()
-{
-    std::cout << "Releasing all sub systems...\n";
-    std::cout << "Releasing the input system...\n";
-    InputManager::Release();
-    std::cout << "Releasing the render system...\n";
-    Renderer::Release();
-    std::cout << "All sub systems released!\n";
 }

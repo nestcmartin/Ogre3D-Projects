@@ -2,11 +2,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\..\src\Sandbox\Main.cpp" />
-    <ClCompile Include="..\..\src\Sandbox\Physics.cpp" />
     <ClCompile Include="..\..\src\Sandbox\TestApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\Sandbox\Physics.h" />
     <ClInclude Include="..\..\src\Sandbox\TestApplication.h" />
   </ItemGroup>
 </Project>
