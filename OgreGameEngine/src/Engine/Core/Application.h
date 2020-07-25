@@ -3,9 +3,11 @@
 
 #include "InputListener.h"
 
+class Clock;
 class Application : InputListener
 {
 protected:
+	Clock* clock_;
 	const char* name_;
 
 public:

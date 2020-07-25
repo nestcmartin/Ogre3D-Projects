@@ -21,3 +21,7 @@ void Physics::Release()
 		foundation->release();
 	}
 }
+
+void Physics::Update(float deltaTime)
+{
+}

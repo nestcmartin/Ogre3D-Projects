@@ -4,8 +4,11 @@
 #include "InputManager.h"
 
 Application::Application(const char* name) :
-    name_(name)
+    name_(name), 
+    clock_(nullptr)
 {
+    clock_ = new Clock();
+
     Core::StartUp();
     Graphics::GetWindow()->setWindowName(name_);
     InputManager::Instance()->addInputListener(this);
@@ -18,20 +21,19 @@ Application::~Application()
 
 void Application::run()
 {
-    Clock realTime;
-    float rdt = realTime.getDeltaTime();
+    float dt = clock_->getDeltaTime();
 
     while (Graphics::IsRendering())
     {
-        realTime.startTimer();
+        clock_->startTimer();
         
         pollEvents();
-        Graphics::Update();
+        Graphics::Update(dt);
+        Physics::Update(dt);
 
-        realTime.endTimer();
+        clock_->endTimer();
 
-        rdt = realTime.getDeltaTime();
-        std::cout << rdt / 1000.0f << "\n";
+        dt = clock_->getDeltaTime();
     }
 }
 

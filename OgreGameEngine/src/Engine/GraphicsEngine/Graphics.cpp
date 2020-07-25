@@ -43,9 +43,9 @@ void Graphics::Release()
 	}
 }
 
-void Graphics::Update()
+void Graphics::Update(float deltaTime)
 {
-	root->renderOneFrame();
+	root->renderOneFrame(deltaTime);
 }
 
 void Graphics::StopRendering()

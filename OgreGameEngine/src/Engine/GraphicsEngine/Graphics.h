@@ -18,7 +18,7 @@ public:
 	static void Init();
 	static void Release();
 
-	static void Update();
+	static void Update(float deltaTime);
 	static void ResizeWindow();
 	static void StopRendering();
 

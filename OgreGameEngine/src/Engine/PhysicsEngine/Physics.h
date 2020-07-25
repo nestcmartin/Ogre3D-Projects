@@ -16,6 +16,8 @@ private:
 public:
 	static void Init();
 	static void Release();
+
+	static void Update(float deltaTime);
 };
 
 #endif // !__PHYSICS_H__
