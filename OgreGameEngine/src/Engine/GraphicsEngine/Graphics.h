@@ -3,6 +3,8 @@
 
 #include "Window.h"
 
+class OverlaySystem;
+
 class Graphics
 {
 private:
@@ -13,6 +15,8 @@ private:
 	static Ogre::SceneManager* sceneManager;
 	static Ogre::Viewport* viewport;
 	static Ogre::Camera* mainCamera;
+
+	static OverlaySystem* os;
 
 public:
 	static void Init();

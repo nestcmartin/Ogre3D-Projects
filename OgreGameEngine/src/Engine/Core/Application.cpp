@@ -58,12 +58,3 @@ void Application::pollEvents()
         }
     }
 }
-
-void Application::preViewportUpdate(const Ogre::RenderTargetViewportEvent& evt)
-{
-    if (!evt.source->getOverlaysEnabled()) return;
-
-    Ogre::ImGuiOverlay::NewFrame();
-
-    ImGui::ShowDemoWindow();
-}

@@ -21,9 +21,6 @@
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\ShaderSystem\TechniqueResolverListener.cpp">
       <Filter>ShaderSystem</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\UIListener.cpp">
-      <Filter>OverlaySystem</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\ResourcesManager.h" />
@@ -37,9 +34,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\ShaderSystem\TechniqueResolverListener.h">
       <Filter>ShaderSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\UIListener.h">
-      <Filter>OverlaySystem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

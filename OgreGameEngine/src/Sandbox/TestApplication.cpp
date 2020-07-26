@@ -2,21 +2,12 @@
 #include "GraphicsEngine/Graphics.h"
 #include "Core/InputSystem/InputManager.h"
 
-#include "OgreOverlayManager.h"
-
 //enum ShaderParam { SP_SHININESS = 1, SP_DIFFUSE, SP_SPECULAR };
 
 TestApplication::TestApplication() : 
     Application("Ogre3D Test")
 {
     Graphics::CreateViewport();
-
-    Ogre::ImGuiOverlay* imguiOverlay = new Ogre::ImGuiOverlay();
-    imguiOverlay->setZOrder(300);
-    imguiOverlay->show();
-    Ogre::OverlayManager::getSingleton().addOverlay(imguiOverlay);
-    uiListener_.reset(new UIListener());
-    listenerChain_ = InputListenerChain({ uiListener_.get() });
 
     Ogre::SceneManager* scnMgr = Graphics::getSceneManager();
 

@@ -12,16 +12,20 @@ Ogre::SceneManager* Graphics::sceneManager = nullptr;
 Ogre::Viewport* Graphics::viewport = nullptr;
 Ogre::Camera* Graphics::mainCamera = nullptr;
 
+OverlaySystem* Graphics::os = nullptr;
+
 void Graphics::Init()
 {
 	CreateRoot();
 	CreateGraphicContext();
 
-	OverlaySystem::Init();
+	os = new OverlaySystem();
 	ShaderSystem::Init();
-
 	CreateSceneManager();
-	
+	os->Init();
+
+	window->getRenderWindow()->addListener(os);
+
 	ResourcesManager::Init();
 
 	isRendering = true;
@@ -32,7 +36,7 @@ void Graphics::Release()
 	ResourcesManager::Release();
 
 	ShaderSystem::Release();
-	OverlaySystem::Release();
+	os->Release();
 	
 	DestroyGraphicContext();
 	DestroyRoot();
@@ -95,7 +99,7 @@ void Graphics::DestroyRoot()
 void Graphics::CreateSceneManager()
 {
 	sceneManager = root->createSceneManager();
-	sceneManager->addRenderQueueListener(OverlaySystem::getOverlaySystem());
+	sceneManager->addRenderQueueListener(os->getOverlaySystem());
 	ShaderSystem::getShaderGenerator()->addSceneManager(sceneManager);
 }
 
