@@ -20,16 +20,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Graphics.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\OverlaySystem.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\UIListener.cpp" />
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\ResourcesManager.cpp" />
-    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\ShaderSystem.cpp" />
-    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\TechniqueResolverListener.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\ShaderSystem\ShaderSystem.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\ShaderSystem\TechniqueResolverListener.cpp" />
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Graphics.h" />
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\OverlaySystem.h" />
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\UIListener.h" />
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\ResourcesManager.h" />
-    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\ShaderSystem.h" />
-    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\TechniqueResolverListener.h" />
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\ShaderSystem\ShaderSystem.h" />
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\ShaderSystem\TechniqueResolverListener.h" />
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

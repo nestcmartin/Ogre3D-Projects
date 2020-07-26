@@ -3,8 +3,6 @@
 
 #include "Window.h"
 
-#include "OgreOverlaySystem.h"
-
 class Graphics
 {
 private:
@@ -12,7 +10,9 @@ private:
 	static Ogre::Root* root;
 	static bool isRendering;
 
-	static Ogre::OverlaySystem* overlaySystem;
+	static Ogre::SceneManager* sceneManager;
+	static Ogre::Viewport* viewport;
+	static Ogre::Camera* mainCamera;
 
 public:
 	static void Init();
@@ -22,11 +22,18 @@ public:
 	static void ResizeWindow();
 	static void StopRendering();
 
+	static void CreateViewport();
+	static void CreateMainCamera();
+
 	static Window* GetWindow() { return window; }
 	static Ogre::Root* GetRoot() { return root; }
+	static Ogre::SceneManager* getSceneManager() { return sceneManager; }
 	static bool IsRendering() { return isRendering; }
 
 protected:
+	static void CreateRoot();
+	static void DestroyRoot();
+	static void CreateSceneManager();
 	static void CreateGraphicContext();
 	static void DestroyGraphicContext();
 };

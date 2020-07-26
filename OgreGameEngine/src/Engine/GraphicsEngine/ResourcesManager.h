@@ -17,6 +17,7 @@ public:
 private:
 	static void Locate();
 	static void Load();
+	static void Unload();
 };
 
 #endif // !__RESOURCES_H__

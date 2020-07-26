@@ -1,7 +1,7 @@
 #include "Core.h"
 #include "Clock.h"
 #include "Application.h"
-#include "InputManager.h"
+#include "InputSystem/InputManager.h"
 
 Application::Application(const char* name) :
     name_(name), 
@@ -57,4 +57,13 @@ void Application::pollEvents()
             break;
         }
     }
+}
+
+void Application::preViewportUpdate(const Ogre::RenderTargetViewportEvent& evt)
+{
+    if (!evt.source->getOverlaysEnabled()) return;
+
+    Ogre::ImGuiOverlay::NewFrame();
+
+    ImGui::ShowDemoWindow();
 }

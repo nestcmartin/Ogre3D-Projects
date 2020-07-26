@@ -106,6 +106,14 @@ void ResourcesManager::Load()
     Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
 }
 
+void ResourcesManager::Unload()
+{
+    for (auto& it : Ogre::ResourceGroupManager::getSingleton().getResourceManagers())
+    {
+        it.second->unloadUnreferencedResources();
+    }
+}
+
 void ResourcesManager::Release()
 {
 	if (FSLayer)
