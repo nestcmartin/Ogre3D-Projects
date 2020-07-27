@@ -21,6 +21,15 @@
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\ShaderSystem\TechniqueResolverListener.cpp">
       <Filter>ShaderSystem</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\OverlayInputListener.cpp">
+      <Filter>OverlaySystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\OverlayManager.cpp">
+      <Filter>OverlaySystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\Overlay.cpp">
+      <Filter>OverlaySystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\ResourcesManager.h" />
@@ -34,6 +43,15 @@
     </ClInclude>
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\ShaderSystem\TechniqueResolverListener.h">
       <Filter>ShaderSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\OverlayInputListener.h">
+      <Filter>OverlaySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\OverlayManager.h">
+      <Filter>OverlaySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\Overlay.h">
+      <Filter>OverlaySystem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -10,9 +10,6 @@
     <ClCompile Include="..\..\..\src\Engine\Core\InputSystem\InputListenerChain.cpp">
       <Filter>InputSystem</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\Engine\Core\InputSystem\InputListenerUI.cpp">
-      <Filter>InputSystem</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\Engine\Core\Application.h" />
@@ -34,9 +31,6 @@
       <Filter>InputSystem</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\Engine\Core\InputSystem\InputListenerChain.h">
-      <Filter>InputSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\Engine\Core\InputSystem\InputListenerUI.h">
       <Filter>InputSystem</Filter>
     </ClInclude>
   </ItemGroup>

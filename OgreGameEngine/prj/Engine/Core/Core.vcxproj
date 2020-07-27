@@ -24,7 +24,6 @@
     <ClCompile Include="..\..\..\src\Engine\Core\Core.cpp" />
     <ClCompile Include="..\..\..\src\Engine\Core\InputSystem\InputListenerChain.cpp" />
     <ClCompile Include="..\..\..\src\Engine\Core\InputSystem\InputManager.cpp" />
-    <ClCompile Include="..\..\..\src\Engine\Core\InputSystem\InputListenerUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\Engine\Core\Application.h" />
@@ -33,7 +32,6 @@
     <ClInclude Include="..\..\..\src\Engine\Core\InputSystem\InputListener.h" />
     <ClInclude Include="..\..\..\src\Engine\Core\InputSystem\InputListenerChain.h" />
     <ClInclude Include="..\..\..\src\Engine\Core\InputSystem\InputManager.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\InputSystem\InputListenerUI.h" />
     <ClInclude Include="..\..\..\src\Engine\Core\Singleton.h" />
     <ClInclude Include="..\..\..\src\Engine\Core\STLHeaders.h" />
     <ClInclude Include="..\..\..\src\Engine\Core\Clock.h" />

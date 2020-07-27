@@ -16,8 +16,6 @@ private:
 	static Ogre::Viewport* viewport;
 	static Ogre::Camera* mainCamera;
 
-	static OverlaySystem* os;
-
 public:
 	static void Init();
 	static void Release();

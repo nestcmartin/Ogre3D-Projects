@@ -1,22 +1,13 @@
 #include "OverlaySystem.h"
 #include "OgreOverlayManager.h"
+
 #include "GraphicsEngine/Graphics.h"
 
-OverlaySystem::OverlaySystem() :
-	overlaySystem(nullptr)
-{
-	overlaySystem = OGRE_NEW Ogre::OverlaySystem();
-}
+Ogre::OverlaySystem* OverlaySystem::overlaySystem = nullptr;
 
 void OverlaySystem::Init()
 {
-	Ogre::ImGuiOverlay* imguiOverlay = OGRE_NEW Ogre::ImGuiOverlay();
-	imguiOverlay->setZOrder(300);
-	imguiOverlay->show();
-	Ogre::OverlayManager::getSingleton().addOverlay(imguiOverlay);
-	
-	inputListenerUI.reset(new InputListenerUI());
-	listenerChain = InputListenerChain({ inputListenerUI.get() });
+	overlaySystem = OGRE_NEW Ogre::OverlaySystem();
 }
 
 void OverlaySystem::Release()
@@ -26,12 +17,4 @@ void OverlaySystem::Release()
 		OGRE_DELETE overlaySystem;
 		overlaySystem = nullptr;
 	}
-}
-
-void OverlaySystem::preViewportUpdate(const Ogre::RenderTargetViewportEvent& evt)
-{
-	if (!evt.source->getOverlaysEnabled()) return;
-
-	Ogre::ImGuiOverlay::NewFrame();
-	ImGui::ShowDemoWindow();
 }

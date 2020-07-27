@@ -20,6 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Graphics.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\Overlay.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\OverlayInputListener.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\OverlayManager.cpp" />
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\OverlaySystem.cpp" />
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\ResourcesManager.cpp" />
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\ShaderSystem\ShaderSystem.cpp" />
@@ -28,6 +31,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Graphics.h" />
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\Overlay.h" />
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\OverlayInputListener.h" />
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\OverlayManager.h" />
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\OverlaySystem\OverlaySystem.h" />
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\ResourcesManager.h" />
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\ShaderSystem\ShaderSystem.h" />
