@@ -22,7 +22,7 @@ TestApplication::TestApplication() :
     Ogre::SubEntity* sub;
     sub = ent->getSubEntity(0);    // eyes
     sub->setCustomParameter(SP_SHININESS, Ogre::Vector4(35, 0, 0, 0));
-    sub->setCustomParameter(SP_DIFFUSE, Ogre::Vector4(0.9, 1, 0.3, 1));
+    sub->setCustomParameter(SP_DIFFUSE, Ogre::Vector4(0.9, 0, 0, 1));
     sub->setCustomParameter(SP_SPECULAR, Ogre::Vector4(1, 0.6, 0.6, 1));
     sub = ent->getSubEntity(1);    // skin
     sub->setCustomParameter(SP_SHININESS, Ogre::Vector4(10, 0, 0, 0));
@@ -37,7 +37,7 @@ TestApplication::TestApplication() :
     sub->setCustomParameter(SP_DIFFUSE, Ogre::Vector4(1, 1, 0.7, 1));
     sub->setCustomParameter(SP_SPECULAR, Ogre::Vector4(1, 1, 1, 1));
 
-    OverlayManager::Instance()->addOverlay("Canvas", 300);
+    OverlayManager::Instance()->addWidget(WidgetType::FPS_COUNTER, "FPS", true);
 }
 
 bool TestApplication::keyPressed(const KeyboardEvent& evt)

@@ -30,6 +30,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\Sandbox\BasicTutorial1.cpp" />
     <ClCompile Include="..\..\src\Sandbox\Main.cpp" />
     <ClCompile Include="..\..\src\Sandbox\TestApplication.cpp" />
   </ItemGroup>

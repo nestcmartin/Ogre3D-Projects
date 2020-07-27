@@ -4,6 +4,12 @@
 
 #include "ResourcesManager.h"
 
+#include <iostream>
+
+float Graphics::FPS = 60.0f;
+float Graphics::fpsTimer = 0;
+int Graphics::frames = 0;
+
 Window* Graphics::window = nullptr;
 Ogre::Root* Graphics::root = nullptr;
 bool Graphics::isRendering = false;
@@ -39,6 +45,7 @@ void Graphics::Release()
 
 void Graphics::Update(float deltaTime)
 {
+	CountFPS(deltaTime / 1000.0f);
 	root->renderOneFrame(deltaTime);
 }
 
@@ -115,4 +122,16 @@ void Graphics::DestroyGraphicContext()
 	}
 
 	if (SDL_WasInit(SDL_INIT_VIDEO)) SDL_QuitSubSystem(SDL_INIT_VIDEO);
+}
+
+void Graphics::CountFPS(float dt)
+{
+	frames++;
+	fpsTimer += dt;
+	if (fpsTimer > 1.0f)
+	{
+		FPS = frames;
+		frames = 0;
+		fpsTimer = 0.0f;
+	}
 }

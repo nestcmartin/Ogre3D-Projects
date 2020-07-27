@@ -7,6 +7,9 @@ class OverlaySystem;
 
 class Graphics
 {
+public:
+	static float FPS;
+
 private:
 	static Window* window;
 	static Ogre::Root* root;
@@ -15,6 +18,9 @@ private:
 	static Ogre::SceneManager* sceneManager;
 	static Ogre::Viewport* viewport;
 	static Ogre::Camera* mainCamera;
+
+	static float fpsTimer;
+	static int frames;
 
 public:
 	static void Init();
@@ -38,6 +44,8 @@ protected:
 	static void CreateSceneManager();
 	static void CreateGraphicContext();
 	static void DestroyGraphicContext();
+
+	static void CountFPS(float dt);
 };
 
 #endif // !__GRAPHICS_H__
