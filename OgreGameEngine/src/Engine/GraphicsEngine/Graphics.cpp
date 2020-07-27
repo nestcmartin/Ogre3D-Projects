@@ -1,10 +1,11 @@
+#include "Bites/OgreBitesConfigDialog.h"
+
 #include "Graphics.h"
 #include "ShaderSystem/ShaderSystem.h"
 #include "OverlaySystem/OverlaySystem.h"
 
 #include "ResourcesManager.h"
 
-#include <iostream>
 
 float Graphics::FPS = 60.0f;
 float Graphics::fpsTimer = 0;
@@ -85,7 +86,8 @@ void Graphics::ResizeWindow()
 void Graphics::CreateRoot()
 {
 	root = OGRE_NEW Ogre::Root();
-	if (!root->restoreConfig()) root->showConfigDialog(nullptr);
+	if (!root->restoreConfig()) 
+		root->showConfigDialog(OgreBites::getNativeConfigDialog());
 	root->initialise(false);
 }
 
