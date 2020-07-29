@@ -30,11 +30,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Sandbox\BasicTutorial1.cpp" />
+    <ClCompile Include="..\..\src\Sandbox\BasicApplication.cpp" />
     <ClCompile Include="..\..\src\Sandbox\Main.cpp" />
     <ClCompile Include="..\..\src\Sandbox\TestApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\Sandbox\BasicApplication.h" />
     <ClInclude Include="..\..\src\Sandbox\TestApplication.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

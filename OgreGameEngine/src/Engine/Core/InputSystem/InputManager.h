@@ -1,7 +1,7 @@
 #ifndef __INPUT_MANAGER_H__
 #define __INPUT_MANAGER_H__
 
-#include "Core/Singleton.h"
+#include "Core/LowLevel/Singleton.h"
 
 union SDL_Event;
 union InputEvent;

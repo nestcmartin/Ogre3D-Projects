@@ -1,4 +1,5 @@
 #include "ShaderSystem.h"
+#include "GraphicsEngine/Scene/SceneManager.h"
 
 Ogre::RTShader::ShaderGenerator* ShaderSystem::shaderGenerator = nullptr;
 TechniqueResolverListener* ShaderSystem::materialManagerListener = nullptr;
@@ -8,10 +9,13 @@ void ShaderSystem::Init()
 	if (Ogre::RTShader::ShaderGenerator::initialize())
 	{
 		shaderGenerator = Ogre::RTShader::ShaderGenerator::getSingletonPtr();
+
 		if (!materialManagerListener)
 		{
 			materialManagerListener = new TechniqueResolverListener(shaderGenerator);
 		}
+
+		shaderGenerator->addSceneManager(SceneManager::Instance()->getSceneManager());
 	}
 }
 

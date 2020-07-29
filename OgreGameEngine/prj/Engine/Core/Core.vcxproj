@@ -24,6 +24,8 @@
     <ClCompile Include="..\..\..\src\Engine\Core\Core.cpp" />
     <ClCompile Include="..\..\..\src\Engine\Core\InputSystem\InputListenerChain.cpp" />
     <ClCompile Include="..\..\..\src\Engine\Core\InputSystem\InputManager.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\Core\LowLevel\Quat.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\Core\LowLevel\Vec3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\Engine\Core\Application.h" />
@@ -32,8 +34,10 @@
     <ClInclude Include="..\..\..\src\Engine\Core\InputSystem\InputListener.h" />
     <ClInclude Include="..\..\..\src\Engine\Core\InputSystem\InputListenerChain.h" />
     <ClInclude Include="..\..\..\src\Engine\Core\InputSystem\InputManager.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\Singleton.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\STLHeaders.h" />
+    <ClInclude Include="..\..\..\src\Engine\Core\LowLevel\Quat.h" />
+    <ClInclude Include="..\..\..\src\Engine\Core\LowLevel\Singleton.h" />
+    <ClInclude Include="..\..\..\src\Engine\Core\LowLevel\STLHeaders.h" />
+    <ClInclude Include="..\..\..\src\Engine\Core\LowLevel\Vec3.h" />
     <ClInclude Include="..\..\..\src\Engine\Core\Clock.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

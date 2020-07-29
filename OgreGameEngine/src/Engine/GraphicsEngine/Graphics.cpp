@@ -1,8 +1,8 @@
-#include "Bites/OgreBitesConfigDialog.h"
-
 #include "Graphics.h"
+#include "Scene/SceneManager.h"
 #include "ShaderSystem/ShaderSystem.h"
 #include "OverlaySystem/OverlaySystem.h"
+#include "Bites/OgreBitesConfigDialog.h"
 
 #include "ResourcesManager.h"
 
@@ -15,9 +15,6 @@ Window* Graphics::window = nullptr;
 Ogre::Root* Graphics::root = nullptr;
 bool Graphics::isRendering = false;
 
-Ogre::SceneManager* Graphics::sceneManager = nullptr;
-Ogre::Viewport* Graphics::viewport = nullptr;
-Ogre::Camera* Graphics::mainCamera = nullptr;
 
 void Graphics::Init()
 {
@@ -26,8 +23,6 @@ void Graphics::Init()
 
 	OverlaySystem::Init();
 	ShaderSystem::Init();
-	CreateSceneManager();
-
 	ResourcesManager::Init();
 
 	isRendering = true;
@@ -35,8 +30,9 @@ void Graphics::Init()
 
 void Graphics::Release()
 {
-	ResourcesManager::Release();
+	SceneManager::Instance()->clearScene();
 
+	ResourcesManager::Release();
 	ShaderSystem::Release();
 	OverlaySystem::Release();
 	
@@ -54,26 +50,6 @@ void Graphics::StopRendering()
 {
 	isRendering = false;
 	root->queueEndRendering();
-}
-
-void Graphics::CreateViewport()
-{
-	if (!mainCamera) CreateMainCamera();
-
-	viewport = window->getRenderWindow()->addViewport(mainCamera);
-	viewport->setBackgroundColour(Ogre::ColourValue(0.4, 0.0, 0.6));
-}
-
-void Graphics::CreateMainCamera()
-{
-	mainCamera = sceneManager->createCamera("Main");
-	mainCamera->setAutoAspectRatio(true);
-	mainCamera->setNearClipDistance(5);
-
-	Ogre::SceneNode* camNode = sceneManager->getRootSceneNode()->createChildSceneNode();
-	camNode->lookAt(Ogre::Vector3(0, 0, -1), Ogre::Node::TS_PARENT);
-	camNode->setPosition(0, 0, 150);
-	camNode->attachObject(mainCamera);
 }
 
 void Graphics::ResizeWindow()
@@ -98,13 +74,6 @@ void Graphics::DestroyRoot()
 		OGRE_DELETE root;
 		root = nullptr;
 	}
-}
-
-void Graphics::CreateSceneManager()
-{
-	sceneManager = root->createSceneManager();
-	sceneManager->addRenderQueueListener(OverlaySystem::getOverlaySystem());
-	ShaderSystem::getShaderGenerator()->addSceneManager(sceneManager);
 }
 
 void Graphics::CreateGraphicContext()

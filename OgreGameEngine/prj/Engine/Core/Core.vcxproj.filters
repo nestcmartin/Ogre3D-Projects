@@ -10,16 +10,16 @@
     <ClCompile Include="..\..\..\src\Engine\Core\InputSystem\InputListenerChain.cpp">
       <Filter>InputSystem</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\Engine\Core\LowLevel\Quat.cpp">
+      <Filter>LowLevel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Engine\Core\LowLevel\Vec3.cpp">
+      <Filter>LowLevel</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\Engine\Core\Application.h" />
     <ClInclude Include="..\..\..\src\Engine\Core\Core.h" />
-    <ClInclude Include="..\..\..\src\Engine\Core\Singleton.h">
-      <Filter>LowLevel</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\Engine\Core\STLHeaders.h">
-      <Filter>LowLevel</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\src\Engine\Core\Clock.h" />
     <ClInclude Include="..\..\..\src\Engine\Core\InputSystem\InputEvent.h">
       <Filter>InputSystem</Filter>
@@ -32,6 +32,18 @@
     </ClInclude>
     <ClInclude Include="..\..\..\src\Engine\Core\InputSystem\InputListenerChain.h">
       <Filter>InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\Core\LowLevel\Singleton.h">
+      <Filter>LowLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\Core\LowLevel\STLHeaders.h">
+      <Filter>LowLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\Core\LowLevel\Quat.h">
+      <Filter>LowLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\Core\LowLevel\Vec3.h">
+      <Filter>LowLevel</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,8 +1,7 @@
 #ifndef __OVERLAY_MANAGER_H__
 #define __OVERLAY_MANAGER_H__
 
-#include "Core/Singleton.h"
-#include "Core/STLHeaders.h"
+#include "Core/LowLevel/Singleton.h"
 #include "OgreRenderTargetListener.h"
 
 #include "Widget.h"

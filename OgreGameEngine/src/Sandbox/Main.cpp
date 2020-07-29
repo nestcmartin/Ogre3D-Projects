@@ -1,8 +1,8 @@
-#include "TestApplication.h"
+#include "BasicApplication.h"
 
 int main(int argc, char *argv[])
 {
-    TestApplication app;
+    BasicApplication app;
     app.run();
 
     return 0;
