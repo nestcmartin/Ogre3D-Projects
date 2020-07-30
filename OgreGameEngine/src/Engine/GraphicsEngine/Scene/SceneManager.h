@@ -46,12 +46,8 @@ public:
 	Ogre::SceneNode* addSceneNode(const char* name, Ogre::SceneNode* parent = nullptr);
 	Ogre::SceneNode* getSceneNode(const char* name = "");
 
-	Ogre::Entity* addRenderObject(const char* name, const char* mesh, float x = 0, float y = 0, float z = 0, Ogre::SceneNode* parent = nullptr);
 	Ogre::Light* addLight(const char* name, float x = 0, float y = 0, float z = 0, Ogre::SceneNode* parent = nullptr);
-	
-	Ogre::Camera* getCamera(const char* name);
 	Ogre::Light* getLight(const char* name);
-	Ogre::Entity* getRenderObject(const char* name);
 
 	Ogre::SceneManager* getSceneManager() { return sceneManager_; }
 

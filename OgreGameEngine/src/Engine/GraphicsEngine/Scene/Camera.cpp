@@ -2,35 +2,46 @@
 #include "SceneManager.h"
 #include "GraphicsEngine/Graphics.h"
 
-Camera::Camera() :
-	MovableObject("MainCameraNode", new Transform(Vec3(0, 0, 140)))
+Camera::Camera(const Ogre::String& name, const Vec3& translate, const Quat& rotate) :
+	MovableObject(translate, rotate)
 {
-	transform_->lookAt(Ogre::Vector3(0, 0, -1), TransformSpace::PARENT);
-	camera_ = SceneManager::Instance()->getSceneManager()->createCamera("MainCamera");
-	camera_->setAutoAspectRatio(true);
+	camera_ = SceneManager::Instance()->getSceneManager()->createCamera(name);
 
-	if (!viewport_) viewport_ = Graphics::GetWindow()->getRenderWindow()->addViewport(camera_);
-	else viewport_->setCamera(camera_);
+	if (Graphics::GetWindow()->getRenderWindow()->getNumViewports() == 0)
+	{
+		viewport_ = Graphics::GetWindow()->getRenderWindow()->addViewport(camera_);
+	}
+	else
+	{
+		viewport_ = Graphics::GetWindow()->getRenderWindow()->getViewport(0);
+		viewport_->setCamera(camera_);
+	}
 
-	attach();
+	node_->attachObject(camera_);
+
+	lookAt(Vec3::NEGATIVE_UNIT_Z, TransformSpace::PARENT);
+	setAutoAspectRatio(true);
+	setNearClipDistance(5);
 }
 
-Camera::Camera(const char* name, Transform* t) :
-	MovableObject(name, t)
+Camera::Camera(const Ogre::String& name, MovableObject* parent, const Vec3& translate, const Quat& rotate) :
+	MovableObject(parent, translate, rotate)
 {
-}
+	camera_ = SceneManager::Instance()->getSceneManager()->createCamera(name);
 
-void Camera::setBackgroundColor(float r, float g, float b)
-{
-	viewport_->setBackgroundColour(Ogre::ColourValue(r, g, b));
-}
+	if (Graphics::GetWindow()->getRenderWindow()->getNumViewports() == 0)
+	{
+		viewport_ = Graphics::GetWindow()->getRenderWindow()->addViewport(camera_);
+	}
+	else
+	{
+		viewport_ = Graphics::GetWindow()->getRenderWindow()->getViewport(0);
+		viewport_->setCamera(camera_);
+	}
 
-void Camera::setNearClipDistance(float val)
-{
-	camera_->setNearClipDistance(val);
-}
+	node_->attachObject(camera_);
 
-void Camera::setFarClipDistance(float val)
-{
-	camera_->setFarClipDistance(val);
+	lookAt(Vec3::NEGATIVE_UNIT_Z, TransformSpace::PARENT);
+	setAutoAspectRatio(true);
+	setNearClipDistance(5);
 }

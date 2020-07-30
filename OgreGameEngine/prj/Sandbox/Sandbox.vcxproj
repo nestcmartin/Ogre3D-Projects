@@ -119,13 +119,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\PhysX-4.1\include\PxShared;$(SolutionDir)lib\PhysX-4.1\include\PhysX;$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\RTShaderSystem;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\Overlay;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\PhysX-4.1\include\PxShared;$(SolutionDir)lib\PhysX-4.1\include\PhysX;$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\Terrain;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\RTShaderSystem;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\Overlay;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\PhysX-4.1\lib\$(PlatformTarget)\$(Configuration)\;$(SolutionDir)lib\SDL2-2.0.10\lib\$(PlatformTarget)\;$(SolutionDir)lib\Ogre-1.12.8\lib\$(PlatformTarget)\$(Configuration)\;$(SolutionDir)lib\Engine\lib\$(PlatformTarget)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>PhysicsEngine_d.lib;GraphicsEngine_d.lib;Core_d.lib;PhysX_32.lib;PhysXFoundation_32.lib;PhysXCommon_32.lib;PhysXExtensions_static_32.lib;SDL2.lib;OgreBites_d.lib;OgreOverlay_d.lib;OgreRTShaderSystem_d.lib;OgreMain_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>PhysicsEngine_d.lib;GraphicsEngine_d.lib;Core_d.lib;SDL2.lib;OgreTerrain_d.lib;OgreBites_d.lib;OgreOverlay_d.lib;OgreRTShaderSystem_d.lib;OgreMain_d.lib;PhysX_32.lib;PhysXFoundation_32.lib;PhysXCommon_32.lib;PhysXExtensions_static_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -136,7 +136,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\PhysX-4.1\include\PxShared;$(SolutionDir)lib\PhysX-4.1\include\PhysX;$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\RTShaderSystem;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\Overlay;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\PhysX-4.1\include\PxShared;$(SolutionDir)lib\PhysX-4.1\include\PhysX;$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\Terrain;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\RTShaderSystem;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\Overlay;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -144,7 +144,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\PhysX-4.1\lib\$(PlatformTarget)\$(Configuration)\;$(SolutionDir)lib\SDL2-2.0.10\lib\$(PlatformTarget)\;$(SolutionDir)lib\Ogre-1.12.8\lib\$(PlatformTarget)\$(Configuration)\;$(SolutionDir)lib\Engine\lib\$(PlatformTarget)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>PhysicsEngine.lib;GraphicsEngine.lib;Core.lib;PhysX_32.lib;PhysXFoundation_32.lib;PhysXCommon_32.lib;PhysXExtensions_static_32.lib;SDL2.lib;OgreBites.lib;OgreOverlay.lib;OgreRTShaderSystem.lib;OgreMain.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>PhysicsEngine.lib;GraphicsEngine.lib;Core.lib;OgreTerrain.lib;PhysX_32.lib;PhysXFoundation_32.lib;PhysXCommon_32.lib;PhysXExtensions_static_32.lib;SDL2.lib;OgreBites.lib;OgreOverlay.lib;OgreRTShaderSystem.lib;OgreMain.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -153,13 +153,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\PhysX-4.1\include\PxShared;$(SolutionDir)lib\PhysX-4.1\include\PhysX;$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\RTShaderSystem;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\Overlay;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\PhysX-4.1\include\PxShared;$(SolutionDir)lib\PhysX-4.1\include\PhysX;$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\Terrain;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\RTShaderSystem;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\Overlay;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\PhysX-4.1\lib\$(PlatformTarget)\$(Configuration)\;$(SolutionDir)lib\SDL2-2.0.10\lib\$(PlatformTarget)\;$(SolutionDir)lib\Ogre-1.12.8\lib\$(PlatformTarget)\$(Configuration)\;$(SolutionDir)lib\Engine\lib\$(PlatformTarget)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>PhysicsEngine_d.lib;GraphicsEngine_d.lib;Core_d.lib;PhysX_64.lib;PhysXFoundation_64.lib;PhysXCommon_64.lib;PhysXExtensions_static_64.lib;SDL2.lib;OgreBites_d.lib;OgreOverlay_d.lib;OgreRTShaderSystem_d.lib;OgreMain_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>PhysicsEngine_d.lib;GraphicsEngine_d.lib;Core_d.lib;SDL2.lib;OgreTerrain_d.lib;OgreBites_d.lib;OgreOverlay_d.lib;OgreRTShaderSystem_d.lib;OgreMain_d.lib;PhysX_64.lib;PhysXFoundation_64.lib;PhysXCommon_64.lib;PhysXExtensions_static_64.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -170,7 +170,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib\PhysX-4.1\include\PxShared;$(SolutionDir)lib\PhysX-4.1\include\PhysX;$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\RTShaderSystem;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\Overlay;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib\PhysX-4.1\include\PxShared;$(SolutionDir)lib\PhysX-4.1\include\PhysX;$(SolutionDir)src\Engine;$(SolutionDir)lib\SDL2-2.0.10\include;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\Terrain;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\RTShaderSystem;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE\Overlay;$(SolutionDir)lib\Ogre-1.12.8\include\OGRE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -178,7 +178,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\PhysX-4.1\lib\$(PlatformTarget)\$(Configuration)\;$(SolutionDir)lib\SDL2-2.0.10\lib\$(PlatformTarget)\;$(SolutionDir)lib\Ogre-1.12.8\lib\$(PlatformTarget)\$(Configuration)\;$(SolutionDir)lib\Engine\lib\$(PlatformTarget)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>PhysicsEngine.lib;GraphicsEngine.lib;Core.lib;PhysX_64.lib;PhysXFoundation_64.lib;PhysXCommon_64.lib;PhysXExtensions_static_64.lib;SDL2.lib;OgreBites.lib;OgreOverlay.lib;OgreRTShaderSystem.lib;OgreMain.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>PhysicsEngine.lib;GraphicsEngine.lib;Core.lib;OgreTerrain.lib;PhysX_64.lib;PhysXFoundation_64.lib;PhysXCommon_64.lib;PhysXExtensions_static_64.lib;SDL2.lib;OgreBites.lib;OgreOverlay.lib;OgreRTShaderSystem.lib;OgreMain.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

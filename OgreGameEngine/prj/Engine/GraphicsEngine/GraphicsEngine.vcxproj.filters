@@ -39,10 +39,13 @@
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\Camera.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\Transform.cpp">
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\MovableObject.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\MovableObject.cpp">
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\Mesh.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\Light.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,10 +77,13 @@
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\Camera.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\Transform.h">
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\MovableObject.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\MovableObject.h">
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\Mesh.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\Light.h">
       <Filter>Scene</Filter>
     </ClInclude>
   </ItemGroup>

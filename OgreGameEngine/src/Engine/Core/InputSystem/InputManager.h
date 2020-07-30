@@ -32,7 +32,7 @@ private:
 enum InputKey
 {
 	DELETE = int('\177'),
-	RETURN = int('\r'),
+	ENTER = int('\r'),
 	ESCAPE = int('\033'),
 	SPACE = int(' '),
 	F1 = (1 << 30) | 0x3A,

@@ -3,16 +3,19 @@
 #include "Core/InputSystem/InputManager.h"
 
 #include "GraphicsEngine/Graphics.h"
+#include "GraphicsEngine/Scene/Light.h"
+#include "GraphicsEngine/Scene/Mesh.h"
 #include "GraphicsEngine/Scene/Camera.h"
 #include "GraphicsEngine/Scene/SceneManager.h"
 #include "GraphicsEngine/OverlaySystem/OverlayManager.h"
 
 BasicApplication::BasicApplication() :
 	Application("Basic Application"),
-	advancedScene_(false),
-	currentShadowType_(0)
+	advancedScene_(true),
+	currentShadowType_(0),
+	terrainPos_(1000, 0, 5000)
 {
-	createBasicScene();
+	createTerrainScene();
 	OverlayManager::Instance()->addWidget(WidgetType::FPS_COUNTER, "FPS", true);
 }
 
@@ -27,17 +30,17 @@ bool BasicApplication::keyPressed(const KeyboardEvent& evt)
 	//	if (advancedScene_)
 	//	{
 	//		SceneManager::Instance()->disableShadows();
-	//		SceneManager::Instance()->createBasicScene();
+	//		createBasicScene();
 	//		advancedScene_ = false;
 	//		currentShadowType_ = 0;
 	//	}
 	//	else
 	//	{
-	//		SceneManager::Instance()->createAdvancedScene();
+	//		createAdvancedScene();
 	//		advancedScene_ = true;
 	//	}
 	//}
-	//else if (evt.keysym.sym == InputKey::RETURN)
+	//else if (evt.keysym.sym == InputKey::ENTER)
 	//{
 	//	if (advancedScene_)
 	//	{
@@ -52,47 +55,83 @@ bool BasicApplication::keyPressed(const KeyboardEvent& evt)
 void BasicApplication::createBasicScene()
 {
 	SceneManager::Instance()->clearScene();
-
-	// Basic Tutorial 1 -----------------------------------------------------------------------
 	SceneManager::Instance()->setAmbientLighting(0.5, 0.5, 0.5);
-	SceneManager::Instance()->addLight("MainLight", 20, 80, 50);
 	
-	cam_ = new Camera();
-	cam_->setBackgroundColor(0.4, 0.0, 0.6);
-	SceneManager::Instance()->addRenderObject("OgreHead", "ogrehead.mesh");
-
-	cam_->transform()->setPosition(Vec3(0, 47, 222));
+	Camera* camera = new Camera("MainCamera");
+	camera->setViewportColor(0.4, 0.0, 0.6);
+	camera->setPosition(Vec3(0, 47, 222));
 	
-	SceneManager::Instance()->addRenderObject("OgreHead2", "ogrehead.mesh", 84, 48, 0, SceneManager::Instance()->getSceneNode("Entity_OgreHead"));
-	SceneManager::Instance()->getSceneNode("Entity_OgreHead")->translate(0, -10, 0);
+	Mesh* ogreHead1 = new Mesh("OgreHead1", "ogrehead.mesh");
+	Mesh* ogreHead2 = new Mesh("OgreHead2", "ogrehead.mesh", ogreHead1, Vec3(84, 48, 0));
+	ogreHead1->translate(0, -10, 0);
+	Mesh* ogreHead3 = new Mesh("OgreHead3", "ogrehead.mesh", Vec3(0, 104, 0));
+	ogreHead3->setScale(2, 1.2, 1);
+	Mesh* ogreHead4 = new Mesh("OgreHead4", "ogrehead.mesh", Vec3(-84, 48, 0));
+	ogreHead4->roll(-90);
 
-	SceneManager::Instance()->addRenderObject("OgreHead3", "ogrehead.mesh", 0, 104, 0);
-	SceneManager::Instance()->getSceneNode("Entity_OgreHead3")->setScale(2, 1.2, 1);
+	ogreHead1->setMaterialName("Examples/CelShading");
+	ogreHead1->setCustomProperty(0, SP_SHININESS, 35, 0, 0, 0);
+	ogreHead1->setCustomProperty(0, SP_DIFFUSE, 0.9, 0, 0, 1);
+	ogreHead1->setCustomProperty(0, SP_SPECULAR, 1, 0.6, 0.6, 1);
+	ogreHead1->setCustomProperty(1, SP_SHININESS, 10, 0, 0, 0);
+	ogreHead1->setCustomProperty(1, SP_DIFFUSE, 0, 0.5, 0, 1);
+	ogreHead1->setCustomProperty(1, SP_SPECULAR, 0.3, 0.5, 0.3, 1);
+	ogreHead1->setCustomProperty(2, SP_SHININESS, 25, 0, 0, 0);
+	ogreHead1->setCustomProperty(2, SP_DIFFUSE, 1, 1, 0, 1);
+	ogreHead1->setCustomProperty(2, SP_SPECULAR, 1, 1, 0.7, 1);
+	ogreHead1->setCustomProperty(3, SP_SHININESS, 20, 0, 0, 0);
+	ogreHead1->setCustomProperty(3, SP_DIFFUSE, 1, 1, 0.7, 1);
+	ogreHead1->setCustomProperty(3, SP_SPECULAR, 1, 1, 1, 1);
 
-	SceneManager::Instance()->addRenderObject("OgreHead4", "ogrehead.mesh", -84, 48, 0);
-	SceneManager::Instance()->getSceneNode("Entity_OgreHead4")->roll(Ogre::Degree(-90));
+	Light* light = new Light("MainLight", LightType::POINT, Vec3(20, 80, 50));
+}
 
-	// Cel Shading ----------------------------------------------------------------------------
-	enum ShaderParam { SP_SHININESS = 1, SP_DIFFUSE, SP_SPECULAR };
+void BasicApplication::createAdvancedScene()
+{
+	SceneManager::Instance()->clearScene();
+	SceneManager::Instance()->setAmbientLighting(0, 0, 0);
+	SceneManager::Instance()->enableShadows(CPU_MODULATIVE);
 
-	Ogre::Entity* ent = SceneManager::Instance()->getRenderObject("OgreHead");
-	ent->setMaterialName("Examples/CelShading");
+	Camera* camera = new Camera("Main Camera", Vec3(200, 300, 400));
+	camera->setViewportColor(0, 0, 0);
+	camera->lookAt(Vec3::ZERO, TransformSpace::WORLD);
 
-	Ogre::SubEntity* sub;
-	sub = ent->getSubEntity(0);    // eyes
-	sub->setCustomParameter(SP_SHININESS, Ogre::Vector4(35, 0, 0, 0));
-	sub->setCustomParameter(SP_DIFFUSE, Ogre::Vector4(0.9, 0, 0, 1));
-	sub->setCustomParameter(SP_SPECULAR, Ogre::Vector4(1, 0.6, 0.6, 1));
-	sub = ent->getSubEntity(1);    // skin
-	sub->setCustomParameter(SP_SHININESS, Ogre::Vector4(10, 0, 0, 0));
-	sub->setCustomParameter(SP_DIFFUSE, Ogre::Vector4(0, 0.5, 0, 1));
-	sub->setCustomParameter(SP_SPECULAR, Ogre::Vector4(0.3, 0.5, 0.3, 1));
-	sub = ent->getSubEntity(2);    // earring
-	sub->setCustomParameter(SP_SHININESS, Ogre::Vector4(25, 0, 0, 0));
-	sub->setCustomParameter(SP_DIFFUSE, Ogre::Vector4(1, 1, 0, 1));
-	sub->setCustomParameter(SP_SPECULAR, Ogre::Vector4(1, 1, 0.7, 1));
-	sub = ent->getSubEntity(3);    // teeth
-	sub->setCustomParameter(SP_SHININESS, Ogre::Vector4(20, 0, 0, 0));
-	sub->setCustomParameter(SP_DIFFUSE, Ogre::Vector4(1, 1, 0.7, 1));
-	sub->setCustomParameter(SP_SPECULAR, Ogre::Vector4(1, 1, 1, 1));
+	Mesh* ninja = new Mesh("Ninja", "ninja.mesh");
+	ninja->setCastShadows(true);
+
+	Mesh* ground = new Mesh("Ground", "ground", Ogre::Vector3::UNIT_Y, Ogre::Vector3::UNIT_Z, 1500, 1500, 20, 20, 5, 5);
+	ground->setMaterialName("Examples/Rockwall");
+	ground->setCastShadows(false);
+
+	Light* spotLight = new Light("SpotLight", LightType::SPOT, Vec3(200, 200, 0));
+	spotLight->setDiffuseColour(0, 0, 1.0);
+	spotLight->setSpecularColour(0, 0, 1.0);
+	spotLight->setSpotlightRange(35, 50);
+	spotLight->setDirection(-1, -1, 0);
+
+	Light* directionalLight = new Light("DirectionalLight", LightType::DIRECTIONAL, Vec3(200, 200, 0));
+	directionalLight->setDiffuseColour(0.4, 0, 0);
+	directionalLight->setSpecularColour(0.4, 0, 0);
+	directionalLight->setDirection(0, -1, 1);
+
+	Light* pointLight = new Light("PointLight", LightType::POINT, Vec3(0, 150, 250));
+	pointLight->setDiffuseColour(0.3, 0.3, 0.3);
+	pointLight->setSpecularColour(0.3, 0.3, 0.3);
+}
+
+void BasicApplication::createTerrainScene()
+{
+	Camera* cam = new Camera("MainCamera", terrainPos_ + Vec3(1683, 50, 2116));
+	cam->lookAt(Vec3(1963, 50, 1660), TransformSpace::PARENT);
+	cam->setNearClipDistance(40);
+
+	if (Graphics::GetRoot()->getRenderSystem()->getCapabilities()->hasCapability(Ogre::RSC_INFINITE_FAR_PLANE))
+		cam->setFarClipDistance(0);
+	else
+		cam->setFarClipDistance(50000);
+
+	Light* light = new Light("TestLight", LightType::DIRECTIONAL);
+	light->setDiffuseColour(1, 1, 1);
+	light->setSpecularColour(0.4, 0.4, 0.4);
+	light->setDirection(Vec3(0.55, -0.3, 0.75).normalise());
 }
