@@ -2,7 +2,7 @@
 #define __SCENE_MANAGER_H__
 
 // TODO:
-// class Vec2, Vec3, Quat
+// class Vec2, Ogre::Vector3, Ogre::Quaternion
 // class Transform
 // class Camera
 // class Light
@@ -18,12 +18,14 @@ namespace Ogre {
 
 #include "Core/LowLevel/Singleton.h"
 
-enum ShadowType { 
-	CPU_MODULATIVE,	CPU_ADDITIVE,
-	GPU_MODULATIVE, GPU_ADDITIVE,
-	LITE_MODULATIVE, LITE_ADDITIVE,
-	_shadowTypeCount
+enum ShadowType : int { 
+	CPU_ADDITIVE = 17, CPU_MODULATIVE = 18,
+	GPU_ADDITIVE = 33, GPU_MODULATIVE = 34,
+	LITE_ADDITIVE = 37, LITE_MODULATIVE = 38,
+	_shadowTypeCount = 6
 };
+
+enum FogType { QUAD = 1, QUAD2 = 2, LINEAR = 3 };
 
 class SceneManager : public Singleton<SceneManager>
 {
@@ -35,19 +37,12 @@ private:
 public:
 	virtual ~SceneManager();
 
-	void createBasicScene();
-	void createAdvancedScene();
 	void setAmbientLighting(float r, float g, float b);
-
-	void enableShadows(ShadowType type = CPU_ADDITIVE);
+	void enableShadows(ShadowType type = CPU_ADDITIVE, float r = 0.5f, float g = 0.5f, float b = 0.5f, float maxDistance = 0);
+	void enableFog(FogType type, float r, float g, float b, float density = 0.001f, float linearStart = 0.0f, float linearEnd = 1.0f);
 	void disableShadows();
+	void disableFog();
 	void clearScene();
-
-	Ogre::SceneNode* addSceneNode(const char* name, Ogre::SceneNode* parent = nullptr);
-	Ogre::SceneNode* getSceneNode(const char* name = "");
-
-	Ogre::Light* addLight(const char* name, float x = 0, float y = 0, float z = 0, Ogre::SceneNode* parent = nullptr);
-	Ogre::Light* getLight(const char* name);
 
 	Ogre::SceneManager* getSceneManager() { return sceneManager_; }
 

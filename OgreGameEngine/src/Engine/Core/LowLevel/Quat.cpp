@@ -1,4 +1,5 @@
 #include "Quat.h"
+#include "Vec3.h"
 
 const float Quat::msEpsilon = 1e-03;
 const Quat Quat::ZERO(0, 0, 0, 0);
@@ -112,7 +113,7 @@ void Quat::FromAxes(const Vec3& xaxis, const Vec3& yaxis, const Vec3& zaxis)
 {
 	Ogre::Matrix3 kRot;
 	kRot.FromAxes(Ogre::Vector3(xaxis.x, xaxis.y, xaxis.z), 
-		Ogre::Vector3(yaxis.x, yaxis.y, yaxis.z), 
+		Ogre::Vector3(yaxis.x, yaxis.y, yaxis.z),
 		Ogre::Vector3(zaxis.x, zaxis.y, zaxis.z));
 	FromRotationMatrix(kRot);
 }

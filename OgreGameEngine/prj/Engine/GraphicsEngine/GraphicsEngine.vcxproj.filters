@@ -48,6 +48,12 @@
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\Model.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\Trail.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\Plane.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\ResourcesManager.h" />
@@ -84,6 +90,12 @@
       <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\Model.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\Trail.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\Plane.h">
       <Filter>Scene</Filter>
     </ClInclude>
   </ItemGroup>

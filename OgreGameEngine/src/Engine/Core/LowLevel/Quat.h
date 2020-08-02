@@ -1,9 +1,9 @@
 #ifndef __QUAT_H__
 #define __QUAT_H__
 
-#include "Vec3.h"
+#include "Ogre.h"
 
-#define Q(q) Ogre::Quaternion(q.w, q.x, q.y, q.z)
+class Vec3;
 
 class Quat
 {

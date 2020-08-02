@@ -29,7 +29,9 @@
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\Light.cpp" />
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\Model.cpp" />
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\MovableObject.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\Plane.cpp" />
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\SceneManager.cpp" />
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\Trail.cpp" />
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\ShaderSystem\ShaderSystem.cpp" />
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\ShaderSystem\TechniqueResolverListener.cpp" />
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Window.cpp" />
@@ -45,7 +47,9 @@
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\Light.h" />
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\Model.h" />
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\MovableObject.h" />
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\Plane.h" />
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\SceneManager.h" />
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\Trail.h" />
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\ShaderSystem\ShaderSystem.h" />
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\ShaderSystem\TechniqueResolverListener.h" />
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Window.h" />

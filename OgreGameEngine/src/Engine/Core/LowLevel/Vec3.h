@@ -1,9 +1,7 @@
-#ifndef __VEC3_H__
-#define __VEC3_H__
+#ifndef __Vec3_H__
+#define __Vec3_H__
 
-#include "Ogre.h"
-
-#define V3(v) Ogre::Vector3(v.x, v.y, v.z)
+#include "Quat.h"
 
 class Vec3
 {
@@ -165,6 +163,35 @@ public:
         if (perp.squaredLength() < fSquareZero) perp = this->crossProduct(Vec3::UNIT_Y);
         return perp;
     }
+    inline Quat getRotationTo(const Vec3& dest, const Vec3& fallbackAxis = Vec3::ZERO) const
+    {
+        float a = Ogre::Math::Sqrt(((const Vec3*)this)->squaredLength() * dest.squaredLength());
+        float b = a + dest.dotProduct(*this);
+
+        if (Ogre::Math::RealEqual(b, 2 * a) || a == 0) return Quat::IDENTITY;
+
+        Vec3 axis;
+
+        if (b < (float)1e-06 * a)
+        {
+            b = (float)0.0;
+            axis = fallbackAxis != Vec3::ZERO ? fallbackAxis
+                : Ogre::Math::Abs(x) > Ogre::Math::Abs(z) ? Vec3(-y, x, (float)0.0)
+                : Vec3((float)0.0, -z, y);
+        }
+        else
+        {
+            axis = this->crossProduct(dest);
+        }
+
+        Quat q(b, axis.x, axis.y, axis.z);
+        q.normalise();
+        return q;
+    }
+    float distance(const Vec3& rhs) const
+    {
+        return (*this - rhs).length();
+    }
     
     inline void makeFloor(const Vec3& v)
     {
@@ -189,4 +216,4 @@ public:
     static const Vec3 UNIT_SCALE;
 };
 
-#endif // !__VEC3_H__
+#endif // !__Vec3_H__

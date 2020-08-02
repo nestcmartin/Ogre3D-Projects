@@ -42,7 +42,7 @@ void Graphics::Release()
 
 void Graphics::Update(float deltaTime)
 {
-	CountFPS(deltaTime / 1000.0f);
+	CountFPS(deltaTime);
 	root->renderOneFrame(deltaTime);
 }
 
@@ -82,6 +82,8 @@ void Graphics::CreateGraphicContext()
 
 	window = new Window();
 	window->initWindow();
+
+	window->setWindowGrab(true);
 }
 
 void Graphics::DestroyGraphicContext()

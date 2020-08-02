@@ -1,27 +1,22 @@
 #include "Model.h"
 #include "SceneManager.h"
 
-Model::Model(const Ogre::String& name, const Ogre::String& mesh, const Vec3& translate, const Quat& rotate) :
+Model::Model(const Ogre::String& name, const Ogre::String& mesh) :
+	MovableObject(), entity_(nullptr)
+{
+	entity_ = SceneManager::Instance()->getSceneManager()->createEntity(name, mesh);
+}
+
+Model::Model(const Ogre::String& name, const Ogre::String& mesh, const Ogre::Vector3& translate, const Ogre::Quaternion& rotate) :
 	MovableObject(translate, rotate), entity_(nullptr)
 {
 	entity_ = SceneManager::Instance()->getSceneManager()->createEntity(name, mesh);
 	node_->attachObject(entity_);
 }
 
-Model::Model(const Ogre::String& name, const Ogre::String& mesh, MovableObject* parent, const Vec3& translate, const Quat& rotate) :
+Model::Model(const Ogre::String& name, const Ogre::String& mesh, MovableObject* parent, const Ogre::Vector3& translate, const Ogre::Quaternion& rotate) :
 	MovableObject(parent, translate, rotate), entity_(nullptr)
 {
-	entity_ = SceneManager::Instance()->getSceneManager()->createEntity(name, mesh);
-	node_->attachObject(entity_);
-}
-
-Model::Model(const Ogre::String& name, const Ogre::String& mesh, const Vec3& normal, const Vec3& up, float width, float height, int xseg, int yseg, float utile, float vtile)
-{
-	if (!Ogre::MeshManager::getSingleton().getByName(mesh))
-	{
-		Ogre::Plane plane(V3(normal), 0);
-		Ogre::MeshManager::getSingleton().createPlane(mesh, Ogre::RGN_DEFAULT, plane, width, height, xseg, yseg, true, 1, utile, vtile, V3(up));
-	}
 	entity_ = SceneManager::Instance()->getSceneManager()->createEntity(name, mesh);
 	node_->attachObject(entity_);
 }

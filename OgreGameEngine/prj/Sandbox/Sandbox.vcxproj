@@ -31,10 +31,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\Sandbox\BasicApplication.cpp" />
+    <ClCompile Include="..\..\src\Sandbox\FirstPersonCharacterController.cpp" />
     <ClCompile Include="..\..\src\Sandbox\Main.cpp" />
+    <ClCompile Include="..\..\src\Sandbox\ThirdPersonCharacterController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Sandbox\BasicApplication.h" />
+    <ClInclude Include="..\..\src\Sandbox\FirstPersonCharacterController.h" />
+    <ClInclude Include="..\..\src\Sandbox\ThirdPersonCharacterController.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

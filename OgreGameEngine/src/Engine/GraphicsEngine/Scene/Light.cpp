@@ -2,7 +2,7 @@
 #include "SceneManager.h"
 #include "OgreSceneManager.h"
 
-Light::Light(const Ogre::String& name, LightType type, const Vec3& translate, const Quat& rotate) :
+Light::Light(const Ogre::String& name, LightType type, const Ogre::Vector3& translate, const Ogre::Quaternion& rotate) :
 	MovableObject(translate, rotate), light_(nullptr), type_(type)
 {
 	light_ = SceneManager::Instance()->getSceneManager()->createLight(name);
@@ -10,7 +10,7 @@ Light::Light(const Ogre::String& name, LightType type, const Vec3& translate, co
 	node_->attachObject(light_);
 }
 
-Light::Light(const Ogre::String& name, LightType type, MovableObject* parent, const Vec3& translate, const Quat& rotate) :
+Light::Light(const Ogre::String& name, LightType type, MovableObject* parent, const Ogre::Vector3& translate, const Ogre::Quaternion& rotate) :
 	MovableObject(parent, translate, rotate), light_(nullptr), type_(type)
 
 {

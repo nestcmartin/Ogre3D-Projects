@@ -1,8 +1,6 @@
 #ifndef __CAMERA_H__
 #define __CAMERA_H__
 
-#include "OgreCamera.h"
-#include "OgreViewport.h"
 #include "MovableObject.h"
 
 class Camera : public MovableObject
@@ -12,9 +10,11 @@ protected:
 	Ogre::Viewport* viewport_;
 
 public:
-	Camera(const Ogre::String& name, const Vec3& translate = Vec3::ZERO, const Quat& rotate = Quat::IDENTITY);
-	Camera(const Ogre::String& name, MovableObject* parent, const Vec3& translate = Vec3::ZERO, const Quat& rotate = Quat::IDENTITY);
+	Camera(const Ogre::String& name, const Ogre::Vector3& translate = Ogre::Vector3::ZERO, const Ogre::Quaternion& rotate = Ogre::Quaternion::IDENTITY);
+	Camera(const Ogre::String& name, MovableObject* parent, const Ogre::Vector3& translate = Ogre::Vector3::ZERO, const Ogre::Quaternion& rotate = Ogre::Quaternion::IDENTITY);
 	virtual ~Camera() {}
+
+	Ogre::MovableObject* getOgreObject() override { return camera_; }
 
 	void setViewportColor(float r, float g, float b) { viewport_->setBackgroundColour(Ogre::ColourValue(r, g, b)); }
 	void setAutoAspectRatio(bool autoar) { camera_->setAutoAspectRatio(autoar); }

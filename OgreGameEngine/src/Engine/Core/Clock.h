@@ -20,7 +20,7 @@ public:
 	void startTimer();
 	void endTimer();
 
-	float getDeltaTime() const { return deltaTime_; }
+	float getDeltaTime() const { return deltaTime_ / 1000.0f; }
 	float getTimeScale() const { return timeScale_; }
 	void setTimeScale(float scale) { timeScale_ = scale; }
 	bool isPaused() const { return isPaused_; }

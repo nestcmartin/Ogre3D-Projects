@@ -19,7 +19,7 @@ void Window::initWindow(const Ogre::String& name, uint32_t w, uint32_t h)
     d.name = name;
 
     int flags = d.useFullScreen ? SDL_WINDOW_FULLSCREEN : SDL_WINDOW_RESIZABLE;
-    native_ = SDL_CreateWindow(d.name.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, d.width, d.height, flags);
+    native_ = SDL_CreateWindow(d.name.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, d.width, d.height, flags);
 
     SDL_SysWMinfo wmInfo;
     SDL_VERSION(&wmInfo.version);

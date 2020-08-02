@@ -2,7 +2,7 @@
 #include "SceneManager.h"
 #include "GraphicsEngine/Graphics.h"
 
-Camera::Camera(const Ogre::String& name, const Vec3& translate, const Quat& rotate) :
+Camera::Camera(const Ogre::String& name, const Ogre::Vector3& translate, const Ogre::Quaternion& rotate) :
 	MovableObject(translate, rotate)
 {
 	camera_ = SceneManager::Instance()->getSceneManager()->createCamera(name);
@@ -19,12 +19,12 @@ Camera::Camera(const Ogre::String& name, const Vec3& translate, const Quat& rota
 
 	node_->attachObject(camera_);
 
-	lookAt(Vec3::NEGATIVE_UNIT_Z, TransformSpace::PARENT);
+	lookAt(Ogre::Vector3::NEGATIVE_UNIT_Z, TransformSpace::PARENT);
 	setAutoAspectRatio(true);
 	setNearClipDistance(5);
 }
 
-Camera::Camera(const Ogre::String& name, MovableObject* parent, const Vec3& translate, const Quat& rotate) :
+Camera::Camera(const Ogre::String& name, MovableObject* parent, const Ogre::Vector3& translate, const Ogre::Quaternion& rotate) :
 	MovableObject(parent, translate, rotate)
 {
 	camera_ = SceneManager::Instance()->getSceneManager()->createCamera(name);
@@ -41,7 +41,7 @@ Camera::Camera(const Ogre::String& name, MovableObject* parent, const Vec3& tran
 
 	node_->attachObject(camera_);
 
-	lookAt(Vec3::NEGATIVE_UNIT_Z, TransformSpace::PARENT);
+	lookAt(Ogre::Vector3::NEGATIVE_UNIT_Z, TransformSpace::PARENT);
 	setAutoAspectRatio(true);
 	setNearClipDistance(5);
 }
