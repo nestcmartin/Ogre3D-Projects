@@ -23,6 +23,7 @@ public:
 
 	void setSpotlightRange(float inner, float outer, float falloff = 1.0f);
 
+	Ogre::Light* getLight() { return light_; }
 };
 
 #endif // !__LIGHT_H__

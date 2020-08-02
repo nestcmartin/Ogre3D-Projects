@@ -42,10 +42,10 @@
     <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\MovableObject.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\Mesh.cpp">
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\Light.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\Light.cpp">
+    <ClCompile Include="..\..\..\src\Engine\GraphicsEngine\Scene\Model.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>
@@ -80,10 +80,10 @@
     <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\MovableObject.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\Mesh.h">
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\Light.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\Light.h">
+    <ClInclude Include="..\..\..\src\Engine\GraphicsEngine\Scene\Model.h">
       <Filter>Scene</Filter>
     </ClInclude>
   </ItemGroup>

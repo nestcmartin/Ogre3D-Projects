@@ -1,10 +1,12 @@
-#include "BasicApplication.h"
 
+#include "OgreTerrainMaterialGeneratorA.h"
+
+#include "BasicApplication.h"
 #include "Core/InputSystem/InputManager.h"
 
 #include "GraphicsEngine/Graphics.h"
 #include "GraphicsEngine/Scene/Light.h"
-#include "GraphicsEngine/Scene/Mesh.h"
+#include "GraphicsEngine/Scene/Model.h"
 #include "GraphicsEngine/Scene/Camera.h"
 #include "GraphicsEngine/Scene/SceneManager.h"
 #include "GraphicsEngine/OverlaySystem/OverlayManager.h"
@@ -12,10 +14,9 @@
 BasicApplication::BasicApplication() :
 	Application("Basic Application"),
 	advancedScene_(true),
-	currentShadowType_(0),
-	terrainPos_(1000, 0, 5000)
+	currentShadowType_(0)
 {
-	createTerrainScene();
+	createInputScene();
 	OverlayManager::Instance()->addWidget(WidgetType::FPS_COUNTER, "FPS", true);
 }
 
@@ -61,12 +62,12 @@ void BasicApplication::createBasicScene()
 	camera->setViewportColor(0.4, 0.0, 0.6);
 	camera->setPosition(Vec3(0, 47, 222));
 	
-	Mesh* ogreHead1 = new Mesh("OgreHead1", "ogrehead.mesh");
-	Mesh* ogreHead2 = new Mesh("OgreHead2", "ogrehead.mesh", ogreHead1, Vec3(84, 48, 0));
+	Model* ogreHead1 = new Model("OgreHead1", "ogrehead.mesh");
+	Model* ogreHead2 = new Model("OgreHead2", "ogrehead.mesh", ogreHead1, Vec3(84, 48, 0));
 	ogreHead1->translate(0, -10, 0);
-	Mesh* ogreHead3 = new Mesh("OgreHead3", "ogrehead.mesh", Vec3(0, 104, 0));
+	Model* ogreHead3 = new Model("OgreHead3", "ogrehead.mesh", Vec3(0, 104, 0));
 	ogreHead3->setScale(2, 1.2, 1);
-	Mesh* ogreHead4 = new Mesh("OgreHead4", "ogrehead.mesh", Vec3(-84, 48, 0));
+	Model* ogreHead4 = new Model("OgreHead4", "ogrehead.mesh", Vec3(-84, 48, 0));
 	ogreHead4->roll(-90);
 
 	ogreHead1->setMaterialName("Examples/CelShading");
@@ -96,10 +97,10 @@ void BasicApplication::createAdvancedScene()
 	camera->setViewportColor(0, 0, 0);
 	camera->lookAt(Vec3::ZERO, TransformSpace::WORLD);
 
-	Mesh* ninja = new Mesh("Ninja", "ninja.mesh");
+	Model* ninja = new Model("Ninja", "ninja.mesh");
 	ninja->setCastShadows(true);
 
-	Mesh* ground = new Mesh("Ground", "ground", Ogre::Vector3::UNIT_Y, Ogre::Vector3::UNIT_Z, 1500, 1500, 20, 20, 5, 5);
+	Model* ground = new Model("Ground", "ground", Ogre::Vector3::UNIT_Y, Ogre::Vector3::UNIT_Z, 1500, 1500, 20, 20, 5, 5);
 	ground->setMaterialName("Examples/Rockwall");
 	ground->setCastShadows(false);
 
@@ -119,19 +120,8 @@ void BasicApplication::createAdvancedScene()
 	pointLight->setSpecularColour(0.3, 0.3, 0.3);
 }
 
-void BasicApplication::createTerrainScene()
+void BasicApplication::createInputScene()
 {
-	Camera* cam = new Camera("MainCamera", terrainPos_ + Vec3(1683, 50, 2116));
-	cam->lookAt(Vec3(1963, 50, 1660), TransformSpace::PARENT);
-	cam->setNearClipDistance(40);
-
-	if (Graphics::GetRoot()->getRenderSystem()->getCapabilities()->hasCapability(Ogre::RSC_INFINITE_FAR_PLANE))
-		cam->setFarClipDistance(0);
-	else
-		cam->setFarClipDistance(50000);
-
-	Light* light = new Light("TestLight", LightType::DIRECTIONAL);
-	light->setDiffuseColour(1, 1, 1);
-	light->setSpecularColour(0.4, 0.4, 0.4);
-	light->setDirection(Vec3(0.55, -0.3, 0.75).normalise());
+	SceneManager::Instance()->clearScene();
+	SceneManager::Instance()->setAmbientLighting(0.5, 0.5, 0.5);
 }

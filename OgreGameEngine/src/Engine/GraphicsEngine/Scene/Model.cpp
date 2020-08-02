@@ -1,21 +1,21 @@
-#include "Mesh.h"
+#include "Model.h"
 #include "SceneManager.h"
 
-Mesh::Mesh(const Ogre::String& name, const Ogre::String& mesh, const Vec3& translate, const Quat& rotate) :
+Model::Model(const Ogre::String& name, const Ogre::String& mesh, const Vec3& translate, const Quat& rotate) :
 	MovableObject(translate, rotate), entity_(nullptr)
 {
 	entity_ = SceneManager::Instance()->getSceneManager()->createEntity(name, mesh);
 	node_->attachObject(entity_);
 }
 
-Mesh::Mesh(const Ogre::String& name, const Ogre::String& mesh, MovableObject* parent, const Vec3& translate, const Quat& rotate) :
+Model::Model(const Ogre::String& name, const Ogre::String& mesh, MovableObject* parent, const Vec3& translate, const Quat& rotate) :
 	MovableObject(parent, translate, rotate), entity_(nullptr)
 {
 	entity_ = SceneManager::Instance()->getSceneManager()->createEntity(name, mesh);
 	node_->attachObject(entity_);
 }
 
-Mesh::Mesh(const Ogre::String& name, const Ogre::String& mesh, const Vec3& normal, const Vec3& up, float width, float height, int xseg, int yseg, float utile, float vtile)
+Model::Model(const Ogre::String& name, const Ogre::String& mesh, const Vec3& normal, const Vec3& up, float width, float height, int xseg, int yseg, float utile, float vtile)
 {
 	if (!Ogre::MeshManager::getSingleton().getByName(mesh))
 	{
